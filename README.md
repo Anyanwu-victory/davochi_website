@@ -1,9 +1,9 @@
-## Davochi Website
+# Davochi Website
 Davochi is a premium, modern real-estate website designed to deliver a luxury digital experience. Built with performance, scalability, and motion design in mind, the project focuses on clean architecture, refined typography, and smooth animations that enhance user engagement.
 
 The design is based on a custom Figma layout and implemented using modern frontend technologies to achieve a studio-level, high-end feel similar to leading architectural and property brands.
 
-# ✨ Features
+## ✨ Features
 
 Premium editorial-style UI
 
@@ -23,7 +23,7 @@ Fully responsive layout
 
 Clean component-based architecture
 
-# 🛠 Tech Stack
+## 🛠 Tech Stack
 
 Next.js (App Router)
 
@@ -39,7 +39,7 @@ shadcn/ui components
 
 pnpm for package management
 
-# 🎯 Project Goals
+## 🎯 Project Goals
 
 Deliver a high-end luxury brand experience
 
