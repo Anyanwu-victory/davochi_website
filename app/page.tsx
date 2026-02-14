@@ -7,6 +7,7 @@ import Services from '@/components/Services'
 import FAQ from '@/components/FAQ'
 import Testimonials from '@/components/Testimonials'
 import Footer from '@/components/Footer'
+// import SignatureSection from '@/components/animations/DavochiSignature'
 
 
 export default function Home() {
@@ -14,13 +15,16 @@ export default function Home() {
     <main className="min-h-screen">
       <Header />
       <Hero />
-      <Stats />
+      <About/>
+      <Stats/>
+      
+      {/* <Stats />
       <About />
       <Projects />
       <Services />
       <FAQ />
       <Testimonials />
-      <Footer />
+      <Footer /> */}
     </main>
   )
 }

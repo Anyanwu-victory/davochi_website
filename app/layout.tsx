@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Cousine } from "next/font/google";
+import { Cousine, Anton } from "next/font/google";
 import "./globals.css";
 
 
@@ -9,6 +9,11 @@ const cousine = Cousine({
   variable: "--font-cousine",
 })
 
+const anton = Anton({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-anton",
+})
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -23,7 +28,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={` ${cousine.variable} antialiased`}
+        className={` ${cousine.variable} ${anton.variable} antialiased`}
       >
         {children}
       </body>
