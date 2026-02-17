@@ -1,9 +1,30 @@
-import React from 'react'
+'use client'
 
-const button2 = () => {
-  return (
-    <div><button className="button2">Hover me</button></div>
-  )
+import { ButtonHTMLAttributes, forwardRef } from 'react'
+import { cn } from '@/lib/utils'
+
+interface MorphButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+  children: React.ReactNode
+  variant?: 'default' | 'gold'
 }
 
-export default button2
+const MorphButton = forwardRef<HTMLButtonElement, MorphButtonProps>(
+  ({ className, children, variant = 'default', ...props }, ref) => {
+    return (
+      <button
+        ref={ref}
+        className={cn(' morphButton',
+          variant === 'gold' && 'gold',
+          className
+        )}
+        {...props}
+      >
+        {children}
+      </button>
+    )
+  }
+)
+
+MorphButton.displayName = 'MorphButton'
+
+export default MorphButton

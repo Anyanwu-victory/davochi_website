@@ -63,7 +63,7 @@ const FAQ = () => {
                 <span className="font-semibold text-gray-900 pr-8">{faq.question}</span>
                 <ChevronDown
                   className={cn(
-                    'w-5 h-5 text-gold-500 transition-transform duration-300 flex-shrink-0',
+                    'w-5 h-5 text-gold-500 transition-transform duration-300 shrink-0',
                     openIndex === index && 'rotate-180'
                   )}
                 />

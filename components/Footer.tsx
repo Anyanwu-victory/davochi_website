@@ -30,7 +30,7 @@ const Footer = () => {
   }
 
   return (
-    <footer ref={ref} id="contact" className="bg-gray-900 text-white">
+    <footer ref={ref} id="contact" className="relative mt-130 bg-gray-900 text-white">
       {/* Contact Form Section */}
       <div className="container-custom py-20">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
@@ -50,7 +50,7 @@ const Footer = () => {
 
             <div className="space-y-4 mb-8">
               <div className="flex items-start gap-4">
-                <div className="w-10 h-10 bg-gold-500/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                <div className="w-10 h-10 bg-gold-500/10 rounded-lg flex items-center justify-center shrink-0">
                   <Phone className="w-5 h-5 text-gold-500" />
                 </div>
                 <div>
@@ -60,7 +60,7 @@ const Footer = () => {
               </div>
 
               <div className="flex items-start gap-4">
-                <div className="w-10 h-10 bg-gold-500/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                <div className="w-10 h-10 bg-gold-500/10 rounded-lg flex items-center justify-center shrink-0">
                   <Mail className="w-5 h-5 text-gold-500" />
                 </div>
                 <div>
@@ -70,7 +70,7 @@ const Footer = () => {
               </div>
 
               <div className="flex items-start gap-4">
-                <div className="w-10 h-10 bg-gold-500/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                <div className="w-10 h-10 bg-gold-500/10 rounded-lg flex items-center justify-center shrink-0">
                   <MapPin className="w-5 h-5 text-gold-500" />
                 </div>
                 <div>
