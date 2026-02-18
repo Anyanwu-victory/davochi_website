@@ -1,7 +1,25 @@
 import type { Metadata } from "next";
-import { Cousine, Anton } from "next/font/google";
+import { Cousine, Anton, Nunito, Manrope, Inter } from "next/font/google";
 import "./globals.css";
+import Header from '@/components/Header'
+import Footer from '@/components/Footer'
 
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["300","400","500", "700", "800"],
+  variable: "--font-inter",
+})
+
+const manrope = Manrope({
+  subsets: ["latin"],
+  weight: ["300","400","500", "700", "800"],
+  variable: "--font-manrope",
+})
+const nunito = Nunito({
+  subsets: ["latin"],
+ weight: ["300","400","500", "700"],
+  variable: "--font-nunito",
+})
 
 const cousine = Cousine({
   subsets: ["latin"],
@@ -28,10 +46,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={` ${cousine.variable} ${anton.variable} antialiased`}
+        className={` ${cousine.variable} ${anton.variable} ${nunito.variable} ${manrope.variable} ${inter.variable} antialiased`}
       >
+        <Header/>
         {children}
+        <Footer/>
       </body>
     </html>
-  );
+   );
 }

@@ -28,9 +28,9 @@ const homePage = () => {
       </div>
       {/* Image */}
       {/* Image Section */}
-      <div className="relative w-full">
+      <div className="relative w-full md:px-10 lg:px-24 mx-auto">
         {/* Image Container */}
-        <div className="relative h-100 md:h-125 lg:h-screen lg:max-w-6xl xl:max-w-7xl md:mx-10 lg:mx-10 mx-auto xl:mx-auto">
+        <div className="relative h-100 md:h-125 lg:h-screen  md:px-10 lg:px-24 mx-auto">
           {/* Full-width Image */}
           <Image
             src="/projectsImage.png"
@@ -50,8 +50,10 @@ const homePage = () => {
           <div className="flex flex-col md:flex-row items-start md:items-end gap-6 md:gap-12 justify-between">
             {/* Left - Title */}
             <div>
-              <h2 className="text-2xl sm:text-3xl md:text-3xl xl:text-4xl font-mono capitalize leading-relaxed
-               text-black font-semibold ">
+              <h2
+                className="text-2xl sm:text-3xl md:text-3xl xl:text-4xl font-mono capitalize leading-relaxed
+               text-black font-semibold "
+              >
                 Smart
                 <br />
                 Opportunities
@@ -71,21 +73,27 @@ const homePage = () => {
           gap-4 hover:border hover:border-[#FFBA32] transition-all duration-300 shadow-lg"
               >
                 Learn More
-                <ArrowRight
-                  size={24}
-                  className="text-[#FFBA32] "
-                />
+                <ArrowRight size={24} className="text-[#FFBA32] " />
               </Button>
             </div>
           </div>
         </div>
       </div>
+
       <div className="h-full mt-50">
         <Projects />
       </div>
 
+      <div className="mt-10">
+        <Services />
+      </div>
+
+      <div className="mt-10">
+        <FAQ />
+      </div>
+
       <div className="mt-20">
-        <Services/>
+        <Testimonials />
       </div>
     </div>
   );

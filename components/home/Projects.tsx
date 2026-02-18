@@ -22,7 +22,7 @@ const Projects = () => {
 
   return (
     <section className="py-20  mt-10">
-      <div className="container-cutom px-8 md:px-16 lg:px-24">
+      <div className="container-cutom md:px-10 lg:px-10 xl:px-24">
       
         
         <div className="space-y-10 gap-6 lg:gap-8 ">
@@ -39,7 +39,7 @@ const Projects = () => {
 
         <div>
           <div className=" justify-start lg:justify-start mt-4 lg:flex">
-                        <Button className=" text-black px-5 lg:px-0 py-3 inline-flex items-center gap-4">
+                        <Button className=" text-black px-4 md:px-0 py-3 inline-flex items-center gap-4">
                           See all Projects
                           <ArrowRight size={24} className="text-[#FFBA32]" />
                         </Button>

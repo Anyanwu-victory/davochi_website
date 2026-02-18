@@ -7,7 +7,9 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
+  --font-inter: var(--font-inter);
+  --font-mano: var(--font-manrope);
+  --font-sans: var(--font-nunito);
   --font-serif: var(--font-cousine);
   --font-mono: var(--font-anton);
   --color-sidebar-ring: var(--sidebar-ring);
@@ -212,6 +214,43 @@
   --accent-color: #FFBA32;
 }
 
+/* custom shape divider */
+
+.custom-shape-divider-bottom-1771398476 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+}
+
+.custom-shape-divider-bottom-1771398476 svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 325px;
+}
+
+.custom-shape-divider-bottom-1771398476 .shape-fill {
+    fill: #000000;
+}
+
+/** For tablet devices **/
+@media (min-width: 768px) and (max-width: 1023px) {
+    .custom-shape-divider-bottom-1771398476 svg {
+        width: calc(100% + 1.3px);
+        height: 235px;
+    }
+}
+
+/** For mobile devices **/
+@media (max-width: 767px) {
+    .custom-shape-divider-bottom-1771398476 svg {
+        width: calc(100% + 1.3px);
+        height: 148px;
+    }
+}
 }
 
 
@@ -234,6 +273,12 @@
   }
   .project-clip-image {
     clip-path: polygon(68% 5%, 100% 11%, 100% 35%, 100% 70%, 73% 87%, 49% 87%, 23% 87%, 0 88%, 0% 35%, 0 13%);
+  }
+  .about-clip-image {
+    clip-path: polygon(50% 0%, 100% 0, 100% 35%, 100% 70%, 79% 88%, 50% 93%, 20% 89%, 0% 70%, 0% 35%, 0 0);
+  }
+  .shadow-stats {
+    box-shadow: 0px 4px 10px 0px #0000000D;
   }
  
 }

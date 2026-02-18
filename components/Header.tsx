@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import { usePathname } from 'next/navigation'
 import Image from 'next/image'
 import { Menu, X } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
@@ -8,52 +9,57 @@ import Button from './Button'
 import { cn } from '@/lib/utils'
 
 const Header = () => {
+  const pathname = usePathname()
+  const isHomePage = pathname === '/'
+
   const [scrollProgress, setScrollProgress] = useState(0)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
   useEffect(() => {
+    if (!isHomePage) return // ⛔ Disable scroll animation on non-home pages
+
     const handleScroll = () => {
-      // Calculate scroll progress (0 to 1)
-      // The border fully expands over the first 200px of scroll
       const scrollY = window.scrollY
-      const maxScroll = 200 // Adjust this value to control expansion speed
+      const maxScroll = 200
       const progress = Math.min(scrollY / maxScroll, 1)
       setScrollProgress(progress)
     }
     
     window.addEventListener('scroll', handleScroll)
-    handleScroll() // Call once to set initial state
+    handleScroll()
     return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+  }, [isHomePage])
 
   const navLinks = [
-    { name: 'About', href: '#about' },
-    { name: 'House Types', href: '#house-types' },
-    { name: 'Projects', href: '#projects' },
-    { name: 'Contact', href: '#contact' },
+    { name: 'About', href: '/about' },
+    { name: 'House Types', href: '/house-types' },
+    { name: 'Projects', href: '/projects' },
+    { name: 'Contact', href: '/contact' },
   ]
 
-  // Calculate border width (starts at ~60% and expands to 100%)
-  const borderWidth = 80 + (scrollProgress * 40) // 60% to 100%
-  
-  // Calculate background opacity
-  const bgOpacity = scrollProgress * 0.95 // 0 to 0.95
-  
-  // Border opacity (visible at start, fades out as it expands)
-  const borderOpacity = 1 - scrollProgress // 1 to 0
+  const borderWidth = 80 + (scrollProgress * 40)
+  const bgOpacity = scrollProgress * 0.95
+  const borderOpacity = 1 - scrollProgress
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 md:bg-transparent bg-black">
-      {/* Background layer with expanding opacity */}
-      <div 
-        className="absolute inset-0 bg-black backdrop-blur-md transition-opacity duration-300"
-        style={{ opacity: bgOpacity }}
-      />
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 ${
+        isHomePage ? '' : 'bg-black'
+      }`}
+    >
+      {/* Background layer — ONLY on homepage */}
+      {isHomePage && (
+        <div 
+          className="absolute inset-0 bg-black backdrop-blur-md transition-opacity duration-300"
+          style={{ opacity: bgOpacity }}
+        />
+      )}
       
       {/* Content layer */}
       <div className="relative">
         <div className="container-custom px-8 md:px-16 lg:px-24">
           <div className="flex items-center justify-between h-20 text-white">
+            
             {/* Logo */}
             <motion.div
               initial={{ opacity: 0, x: -20 }}
@@ -61,6 +67,7 @@ const Header = () => {
               transition={{ duration: 0.5 }}
               className="text-2xl font-bold relative z-10"
             >
+              <a href='/'>
               <Image 
                 src="/Logo.svg" 
                 alt="Logo" 
@@ -68,6 +75,7 @@ const Header = () => {
                 height={100} 
                 className="inline-block ml-2" 
               />
+              </a>
             </motion.div>
 
             {/* Desktop Navigation */}
@@ -111,14 +119,17 @@ const Header = () => {
           </div>
         </div>
 
-        {/* Expanding Border Line */}
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 h-px transition-all duration-300 ease-out"
-          style={{ 
-            width: `${borderWidth}%`,
-            backgroundColor: 'white',
-            opacity: borderOpacity
-          }}
-        />
+        {/* Expanding Border — ONLY on homepage */}
+        {isHomePage && (
+          <div
+            className="absolute bottom-0 left-1/2 -translate-x-1/2 h-px transition-all duration-300 ease-out"
+            style={{ 
+              width: `${borderWidth}%`,
+              backgroundColor: 'white',
+              opacity: borderOpacity
+            }}
+          />
+        )}
       </div>
 
       {/* Mobile Menu */}

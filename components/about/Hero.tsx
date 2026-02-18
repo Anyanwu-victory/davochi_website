@@ -1,4 +1,5 @@
 "use client";
+
 import {
   motion,
   useInView,
@@ -6,9 +7,7 @@ import {
   useTransform,
   animate,
 } from "framer-motion";
-import { useRef, useEffect, useState } from "react";
-import Image from "next/image";
-import Button from "../Button";
+import { useRef, useState, useEffect } from "react";
 import { iconComponents } from "../icons";
 import MorphButton from "../ui/morphButton";
 
@@ -52,7 +51,7 @@ function AnimatedNumber({
   );
 }
 
-const AboutWithStats = () => {
+const Hero = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
@@ -69,61 +68,95 @@ const AboutWithStats = () => {
   ];
 
   return (
-    <section
-      ref={ref}
-      id="about"
-      className="relative mx-auto px-6 sm:px-8 lg:px-12 xl:px-24 md:mt-10 lg:-mt-25 "
-    >
-      {/* Building Image Section */}
-      <div className="relative">
-        {/* ================= DESKTOP IMAGE ================= */}
-        <div className="hidden lg:block relative h-150 xl:h-175 w-full">
-          <Image
-            src="/bg-image.jpg"
-            alt="Building"
-            fill
-            priority
-            className="object-cover clip-image "
-          />
+    <section id="home" className="">
+      {/* Hero Section */}
+      <div className="relative h-screen flex items-center justify-center overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0 z-0 overflow-hidden rounded-b-[120px] md:rounded-b-[300px]  mb-10">
+          <div
+            className="w-full h-full bg-cover bg-center bg-no-repeat"
+            style={{
+              backgroundImage:
+                "url('/image/about-hero-image.png')",
+            }}
+          >
+            <div className="absolute inset-0 bg-black/40" />
+          </div>
         </div>
+      </div>
 
-        {/* ================= MOBILE + TABLET IMAGE ================= */}
-        <div className="lg:hidden relative h-100 md:h-125">
-          <Image
-            src="/backgroundImage.png"
-            alt="Building"
-            fill
-            priority
-            className="object-cover mobile-clip-image"
-          />
+      {/* Content */}
+      <div className="mx-auto px-6 sm:px-8 lg:px-12 xl:px-24 py-5">
+        <motion.div className="mt-5">
+          {/* Label */}
+          <p className="text-[#FBBD00] mb-4 text-sm font-semibold tracking-widest font-inter">
+            About us
+          </p>
+
+          {/* Heading */}
+          <h2 className="text-3xl md:text-4xl xl:text-5xl font-mono font-normal capitalize leading-tight mb-6 lg:mb-10">
+            The Davochi Difference
+          </h2>
+        </motion.div>
+
+        {/* paragrapgh */}
+        <div className="lg:w-[90%]">
+          <p className="font-inter text-[16px] text-[#585858] leading-6 mb-7">
+            Incorporated on 7th July 2013. Headquartered in Abuja, Nigeria, the
+            company has built a reputation for integrity, delivery excellence,
+            and value-driven property solutions across residential and mixed-use
+            developments.
+          </p>
+
+          <p className="font-inter text-[16px] text-[#585858] leading-6 ">
+            Davochi Multi Homes is led by a seasoned and purpose-driven
+            management team with hands on industry experience, The leadership
+            philosophy of Davochi Multi Homes is anchored on accountability,
+            transparency, and long-term value creation.
+          </p>
+
+          {/* mission */}
+          <div className="mt-7 leading-8">
+            <h2 className="font-inter text-xl font-bold ">Our mission</h2>
+
+            <p className="font-inter text-[16px] text-[#585858] leading-6 ">
+              To develop and deliver high-quality real estate solutions that
+              provide comfort, security, and sustainable value while exceeding
+              client expectations.
+            </p>
+          </div>
+
+          {/* vision */}
+          <div className="mt-7">
+            <h2 className="font-inter text-xl font-bold">Our vision</h2>
+
+            <p className="font-inter text-[16px] text-[#585858] leading-6 ">
+              To become a trusted, world-class real estate brand recognized for
+              excellence, innovation, and integrity across Africa.
+            </p>
+          </div>
         </div>
+      </div>
 
-        {/* Stats Overlay Card - DESKTOP: Overlaps at bottom, MOBILE: Below image */}
+      {/* stats */}
+      <div>
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="
-            relative lg:absolute
-            lg:-bottom-70 lg:left-1/2 lg:-translate-x-1/2 lg:translate-y-1/3
-            w-full   lg:px-0
-            lg:w-[90%] lg:max-w-6xl
-             lg:mt-0 
-          "
-        >
-          <div className="bg-white lg:rounded-[59px] shadow-glow px-6 md:p-10 lg:p-12 xl:p-16 mb-30 py-8">
+        ref={ref}
+        initial={{ opacity: 0, scale: 0.8 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5, delay: 0.4  }}
+          className="w-full lg:px-0 lg:w-[90%] lg:max-w-6xl lg:my-5 mx-auto ">
+          <div className="bg-white shadow-stats px-6 md:p-10 lg:p-12 xl:p-16 mb-30 py-8">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 lg:gap-12 space-y-12 justify-center ">
               {stats.map((stat, index) => (
                 <motion.div
                   key={index}
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={isInView ? { opacity: 1, scale: 1 } : {}}
-                  transition={{ duration: 0.5, delay: 0.4 + index * 0.1 }}
                   className="text-center"
                 >
                   {/* Icon and numbers */}
                   <div className="flex justify-start items-center mb-3 md:mb-4 gap-5">
-                    <div className="w-12 h-12 md:w-14 md:h-14  rounded-xl flex items-center justify-center border border-gray-100">
+                    <div className="w-12 h-12 md:w-14 md:h-14 flex items-center justify-center border border-gray-100">
                       {(() => {
                         const IconComponent =
                           iconComponents[
@@ -158,7 +191,6 @@ const AboutWithStats = () => {
             <div className=" pt-10 md:pt-10 lg:pt-13 ">
               <div className=" px-8 md:px-16 lg:px-24">
                 <div className="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
-
                   {/* Download Brochures Card */}
                   <motion.div
                     initial={{ opacity: 0, y: 20 }}
@@ -176,10 +208,9 @@ const AboutWithStats = () => {
                       <br />
                       through our collection of brochures
                     </p>
-
-                     <MorphButton label="Download Brochures" href="/download_brochures"/>
+                    
+                    <MorphButton label="Download Brochures" href="/download_brochures"/>
                   </motion.div>
-                  
 
                   {/* Let's Talk Card */}
                   <motion.div
@@ -198,6 +229,7 @@ const AboutWithStats = () => {
                       <br />
                       speaking to one of our experts
                     </p>
+                    
                     <MorphButton label="Let's Talk" href="/contact"/>
                   </motion.div>
                 </div>
@@ -206,9 +238,8 @@ const AboutWithStats = () => {
           </div>
         </motion.div>
       </div>
-    
     </section>
   );
 };
 
-export default AboutWithStats;
+export default Hero;

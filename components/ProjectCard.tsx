@@ -59,13 +59,13 @@ const ProjectCard = ({
             transition={{ duration: 0.4, ease: "easeOut" }}
           >
             {/* Title */}
-            <h3 className="text-white font-mono text-4xl md:text-4xl capitalize
+            <h3 className="text-white font-mono text-3xl md:text-4xl capitalize
              lg:text-7xl  mb-3">
               {title}
             </h3>
 
             {/* Subtitle */}
-            <p className="text-white/90  text-3xl md:text-base font-serif">{subtitle}</p>
+            <p className="text-white/90  text-sm md:text-3xl  font-serif">{subtitle}</p>
           </motion.div>
 
           {/* Right side: Button (stays fixed, only color changes) */}
