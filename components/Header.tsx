@@ -101,12 +101,14 @@ const Header = () => {
               transition={{ duration: 0.5 }}
               className="hidden md:block relative z-10"
             >
+              <a href="/contact">
               <Button 
                 variant="outline" 
                 className="border-2 border-white text-white hover:bg-white/10"
               >
                 Book a Tour
               </Button>
+              </a>
             </motion.div>
 
             {/* Mobile Menu Button */}
@@ -153,12 +155,14 @@ const Header = () => {
                   {link.name}
                 </a>
               ))}
-              <Button 
-                variant="outline" 
-                className="w-full border-2 border-white text-white hover:bg-white/10"
-              >
-                Book a Tour
-              </Button>
+              <a href="/contact">
+                <Button 
+                  variant="outline" 
+                  className="w-full border-2 border-white text-white hover:bg-white/10"
+                >
+                  Book a Tour
+                </Button>
+              </a>
             </div>
           </motion.div>
         )}
