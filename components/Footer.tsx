@@ -44,6 +44,7 @@ const Footer = () => {
               to start your extraordinary real estate experience.
             </p>
 
+            {/* Form */}
             <form className="space-y-3 max-w-md md:max-w-full lg:max-w-125">
               <input
                 type="text"
