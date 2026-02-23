@@ -2,7 +2,6 @@
 
 import { Project } from "@/data/projects";
 import { motion } from "framer-motion";
-import Image from "next/image";
 import { useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
@@ -78,11 +77,10 @@ const ProjectSights = ({ project }: ProjectSightsProps) => {
               transition={{ delay: index * 0.1 }}
               className="relative h-48 md:h-64 rounded-lg overflow-hidden group shadow-md hover:shadow-lg transition-shadow"
             >
-              <Image
+              <img
                 src={sight.image}
                 alt={sight.title}
-                fill
-                className="object-cover w-full h-full group-hover:scale-105 transition-transform duration-300"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
               />
               {/* Overlay Title */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent flex items-end p-4">

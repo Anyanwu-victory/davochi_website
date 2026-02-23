@@ -3,7 +3,6 @@
 import { Project } from "@/data/projects";
 import { ArrowLeft } from "lucide-react";
 import { useRouter } from "next/navigation";
-import Image from "next/image";
 import { motion } from "framer-motion";
 
 interface ProjectDetailHeroProps {
@@ -31,12 +30,10 @@ const ProjectDetailHero = ({ project }: ProjectDetailHeroProps) => {
         transition={{ duration: 0.6 }}
         className="relative h-64 md:h-96 lg:h-[500px] overflow-hidden rounded-b-3xl md:rounded-b-[80px] lg:rounded-b-[120px]"
       >
-        <Image
+        <img
           src={project.bannerImage}
           alt={project.title}
-          fill
-          className="object-cover w-full h-full"
-          priority
+          className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-black/30" />
       </motion.div>
@@ -85,11 +82,10 @@ const ProjectDetailHero = ({ project }: ProjectDetailHeroProps) => {
 
             {/* Right Column - Image */}
             <div className="relative h-64 md:h-80 lg:h-96 rounded-lg overflow-hidden shadow-lg">
-              <Image
+              <img
                 src={project.image}
                 alt={project.title}
-                fill
-                className="object-cover w-full h-full"
+                className="w-full h-full object-cover"
               />
             </div>
           </motion.div>
