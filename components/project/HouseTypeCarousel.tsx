@@ -129,7 +129,7 @@ const HouseCard = ({
   slug: string
 }) => {
   return (
-    <Link href={`/projects/${slug}`}>
+    
       <div className="group relative h-120 md:h-125 rounded-[10px] overflow-hidden cursor-pointer">
         {/* Image */}
         <Image
@@ -155,14 +155,18 @@ const HouseCard = ({
           </p>
 
           {/* View Project Link */}
+            <Link href={`/projects/${slug}`}>
           <div className="flex items-center gap-2 text-white font-semibold text-sm md:text-[16px]
             transition-all duration-300 font-inter">
+             
              View Project
             <ArrowRight className="w-4 h-4 group-hover:text-[#FBBD00]" />
+            
           </div>
+          </Link>
         </div>
       </div>
-    </Link>
+  
   )
 }
 

@@ -18,7 +18,7 @@ const Projects = () => {
               subtitle={project.subtitle}
               description={project.shortDescription}
               image={project.mainImage}
-              link={`/proj/${project.slug}`}
+              link={`/projects/${project.slug}`}
             />
           ))}
         </div>

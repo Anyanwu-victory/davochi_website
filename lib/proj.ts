@@ -54,7 +54,7 @@ export const projects: Project[] = [
     description:
       'Cliffside represents the future of residential living with its stunning 4-bedroom smart terrace homes. Priced at ₦280 million, these 8 exclusive units feature panoramic glass-top views, integrated smart home technology, two spacious living rooms, and employee quarters. Located near quality schools and SPAR Supermarket with excellent road networks, Cliffside is perfect for tech-savvy families seeking convenience and sophistication. A flexible 70/30 payment plan makes ownership achievable.',
     heroImage: '/image/projects/davochi-mall.png',
-    mainImage: '/image/projects/davochi_mall.jpg',
+    mainImage: '/image/projects/acacia-landing.jpg',
     stats: [
       { value: '2 mins', label: 'To Central Business District', icon: 'location' },
       { value: '10 mins', label: 'To Abuja City Centre', icon: 'clock' },

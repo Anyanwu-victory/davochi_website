@@ -9,6 +9,14 @@ import type { ProjectStat } from "@/lib/proj";
 import MorphButton from "../ui/morphButton";
 import { iconComponents } from "../icons";
 import { motion, useInView } from "framer-motion";
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from "@/components/ui/breadcrumb";
 
 type ProjectInfoProps = {
   category: string;
