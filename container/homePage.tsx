@@ -28,7 +28,7 @@ const homePage = () => {
       </div>
       {/* Image */}
       {/* Image Section */}
-      <div className="relative w-full md:px-10 lg:px-24 mx-auto">
+      <div className="relative w-full mx-auto px-6 sm:px-8 lg:px-30 xl:px-48">
         {/* Image Container */}
         <div className="relative h-100 md:h-125 lg:h-screen  md:px-10 lg:px-24 mx-auto">
           {/* Full-width Image */}
@@ -42,8 +42,9 @@ const homePage = () => {
         </div>
 
         {/* Text Content - Below image on mobile, overlapping on desktop */}
-        <div className="relative mx-6 lg:max-w-6xl xl:max-w-7xl md:mx-10 lg:mx-10 xl:mx-auto py-8 md:py-12 lg:py-16">
-          <p className="text-[#FBBD00] mb-4 md:mb-6 text-[21px] md:text-base capitalize tracking-wide font-mono">
+        <div className="relative mx-6 lg:max-w-6xl xl:max-w-7xl md:mx-10 lg:mx-10 
+        xl:mx-auto py-8 md:py-12 lg:pb-6 lg:pt-0 -mt-10">
+          <p className="text-[#FBBD00] mb-4 md:mb-5 text-[21px] md:text-base capitalize tracking-wide font-mono">
             Projects
           </p>
 
@@ -80,7 +81,7 @@ const homePage = () => {
         </div>
       </div>
 
-      <div className="h-full mt-50">
+      <div className="h-full mt-30">
         <Projects />
       </div>
 

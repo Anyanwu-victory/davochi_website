@@ -72,7 +72,7 @@ const AboutWithStats = () => {
     <section
       ref={ref}
       id="about"
-      className="relative mx-auto px-6 sm:px-8 lg:px-12 xl:px-24 md:mt-10 lg:-mt-25 "
+      className="relative  mx-auto px-6 sm:px-8 lg:px-30 xl:px-48 pb-8 md:mt-10 lg:-mt-25 "
     >
       {/* Building Image Section */}
       <div className="relative">

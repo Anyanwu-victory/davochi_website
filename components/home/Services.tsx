@@ -63,7 +63,7 @@ const Services = () => {
 
   return (
     <section ref={ref} id="services" className="py-16 md:py-24 bg-white">
-      <div className="mx-auto px-6 sm:px-8 lg:px-12 xl:px-24 ">
+      <div className="mx-auto px-6 sm:px-8 lg:px-30 xl:px-48 ">
         <div className="flex flex-col lg:flex-row gap-10 lg:gap-16">
           {/* ===== LEFT SIDE ===== */}
           <motion.div
@@ -165,7 +165,7 @@ const Services = () => {
               className=" 
   relative 
   w-full 
-  h-10 
+  h-100 
   sm:h-100 
   md:h-130 
   lg:h-150 

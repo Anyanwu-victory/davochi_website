@@ -16,7 +16,7 @@ const Hero = () => {
       {/* Hero Section */}
       <div className="relative h-screen flex items-center justify-center overflow-hidden">
         {/* Background Image */}
-        <div className="absolute inset-0 z-0 overflow-hidden rounded-b-[120px] md:rounded-b-[300px]  mb-10">
+        <div className="absolute inset-0 z-0 overflow-hidden mb-10">
           <div
             className="w-full h-full bg-cover bg-center bg-no-repeat"
             style={{

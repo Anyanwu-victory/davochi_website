@@ -2,7 +2,9 @@
 
 import { useState, useEffect } from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react'
+
 import {
   Carousel,
   CarouselContent,
@@ -10,51 +12,7 @@ import {
   type CarouselApi,
 } from '@/components/ui/carousel'
 import { cn } from '@/lib/utils'
-
-const houseTypes = [
-  {
-    id: 1,
-    title: 'Davochi Mall',
-    subtitle: 'Commercial Complex',
-    category: 'Mall Project',
-    image: '/image/projects/davochi-mall.png',
-  },
-  {
-    id: 2,
-    title: 'Luxury Villa',
-    subtitle: '5-Bedroom Semidetached',
-    category: 'Villa Project',
-    image: '/image/projects/luxury-villa.png',
-  },
-  {
-    id: 3,
-    title: 'Mirvana Heights',
-    subtitle: 'Redevelopm Apartment',
-    category: 'View Project',
-    image: '/image/projects/nirvana-landing.png',
-  },
-  {
-    id: 4,
-    title: 'Onex',
-    subtitle: '5-Bedroom Townhouse',
-    category: 'Villas Project',
-    image: '/image/projects/onex-landing.png',
-  },
-  {
-    id: 5,
-    title: 'Acacia',
-    subtitle: '4-Bedroom Terrace',
-    category: 'View Project',
-    image: '/image/projects/acacia-landing.jpg',
-  },
-  {
-    id: 6,
-    title: 'Oak',
-    subtitle: '5-Bedroom Fully Detached Duplex',
-    category: 'View Project',
-    image: '/image/projects/oak-landing.jpg',
-  },
-]
+import { projects } from '@/lib/proj';
 
 const HouseTypesCarousel = () => {
   const [api, setApi] = useState<CarouselApi>()
@@ -98,7 +56,7 @@ const HouseTypesCarousel = () => {
             className="w-full"
           >
             <CarouselContent className="-ml-4">
-              {houseTypes.map((house) => (
+              {projects.map((house) => (
                 <CarouselItem
                   key={house.id}
                   className="pl-4 basis-1/2 sm:basis-1/2 md:basis-1/3 lg:basis-1/3 xl:basis-1/4"
@@ -161,46 +119,50 @@ const HouseCard = ({
   title,
   subtitle,
   category,
-  image,
+  mainImage,
+  slug,
 }: {
   title: string
   subtitle: string
   category: string
-  image: string
+  mainImage: string
+  slug: string
 }) => {
   return (
-    <div className="group relative h-120 md:h-125 rounded-[10px] overflow-hidden cursor-pointer">
-      {/* Image */}
-      <Image
-        src={image}
-        alt={title}
-        fill
-        className="object-cover transition-transform duration-500 group-hover:scale-110"
-      />
+    <Link href={`/projects/${slug}`}>
+      <div className="group relative h-120 md:h-125 rounded-[10px] overflow-hidden cursor-pointer">
+        {/* Image */}
+        <Image
+          src={mainImage}
+          alt={title}
+          fill
+          className="object-cover transition-transform duration-500 group-hover:scale-110"
+        />
 
-      {/* Gradient Overlay */}
-      <div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/50 to-transparent" />
+        {/* Gradient Overlay */}
+        <div className="absolute inset-0 bg-linear-to-t from-black/90 via-black/50 to-transparent" />
 
-      {/* Content */}
-      <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-        {/* Title */}
-        <h3 className="text-2xl md:text-[38px] font-mono font-normal mb-2 group-hover:-translate-y-1 transition-transform duration-300">
-          {title}
-        </h3>
+        {/* Content */}
+        <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+          {/* Title */}
+          <h3 className="text-2xl md:text-[38px] font-mono font-normal mb-2 group-hover:-translate-y-1 transition-transform duration-300">
+            {title}
+          </h3>
 
-        {/* Subtitle */}
-        <p className="text-sm md:text-[16px] leading-4 font-inter font-semibold text-white/80 mb-4">
-          {subtitle}
-        </p>
+          {/* Subtitle */}
+          <p className="text-sm md:text-[16px] leading-4 font-inter font-semibold text-white/80 mb-4">
+            {subtitle}
+          </p>
 
-        {/* View Project Link */}
-        <div className="flex items-center gap-2 text-white font-semibold text-sm md:text-[16px]
-          transition-all duration-300 font-inter">
-           View Project
-          <ArrowRight className="w-4 h-4 group-hover:text-[#FBBD00]" />
+          {/* View Project Link */}
+          <div className="flex items-center gap-2 text-white font-semibold text-sm md:text-[16px]
+            transition-all duration-300 font-inter">
+             View Project
+            <ArrowRight className="w-4 h-4 group-hover:text-[#FBBD00]" />
+          </div>
         </div>
       </div>
-    </div>
+    </Link>
   )
 }
 

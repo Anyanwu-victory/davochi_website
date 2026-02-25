@@ -42,7 +42,7 @@ const Hero = () => {
       </div>
 
       {/* Content */}
-      <div className="mx-auto px-6 sm:px-8 lg:px-12 xl:px-24  py-5">
+      <div className="mx-auto px-6 sm:px-8 lg:px-30 xl:px-48  py-5">
         <motion.div className="mt-5 flex flex-col lg:flex-row gap-5 justify-between">
           {/* Label */}
           <div>

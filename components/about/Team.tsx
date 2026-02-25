@@ -48,7 +48,7 @@ const Team = () => {
 
   return (
     <section ref={ref} id="team" className="py-16 md:py-20 bg-white">
-      <div className="mx-auto px-6 sm:px-8 lg:px-12 xl:px-24 py-5 ">
+      <div className="mx-auto px-6 sm:px-8 lg:px-30 xl:px-48 py-5 ">
         {/* Section Title */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -58,7 +58,7 @@ const Team = () => {
         >
           <div className="">
             {/* Label */}
-            <p className="text-[#FBBD00] mb-4 text-sm font-semibold tracking-widest font-inter">
+            <p className="text-[#FBBD00] mb-4 text-sm md:text-[20px] font-semibold tracking-widest font-inter">
               The Core Team
             </p>
 

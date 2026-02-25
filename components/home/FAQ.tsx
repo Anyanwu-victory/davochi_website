@@ -5,42 +5,17 @@ import { useInView } from 'framer-motion'
 import { useRef, useState } from 'react'
 import { ChevronDown } from 'lucide-react'
 import { cn } from '@/lib/utils'
+import { faqs } from '@/lib/data';
 
 const FAQ = () => {
   const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, margin: '-100px' })
-  const [openIndex, setOpenIndex] = useState<number | null>(0)
+  const isInView = useInView(ref, { once: true, margin: '-100px' });
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
 
-  const faqs = [
-    {
-      question: 'How do I know which service I need for my business?',
-      answer: 'Yes, we offer comprehensive financing options through our partner banks. Our team will guide you through the mortgage application process and help you secure the best rates available.',
-    },
-    {
-      question: 'What happens if I don’t file an Annual Report?',
-      answer: 'Absolutely! We provide construction services on client-owned land. Our team will work with you to understand your vision and deliver a property that exceeds your expectations.',
-    },
-    {
-      question: 'Do I need a Registered Agent if I already have a business address?',
-      answer: 'Yes, all our properties can be customized to match your preferences. From floor plans to finishes, we work closely with you to create your ideal space.',
-    },
-    {
-      question: 'What’s the difference between a Business Amendment and a Foreign Qualification?',
-      answer: 'We offer flexible payment plans tailored to your financial situation. Our standard schedule includes initial deposit, milestone payments during construction, and final payment upon completion.',
-    },
-    {
-      question: 'How do I prove my business is in good standing?',
-      answer: 'We offer flexible payment plans tailored to your financial situation. Our standard schedule includes initial deposit, milestone payments during construction, and final payment upon completion.',
-    },
-    {
-      question: 'What if my business was revoked, can I get it back?',
-      answer: 'We offer flexible payment plans tailored to your financial situation. Our standard schedule includes initial deposit, milestone payments during construction, and final payment upon completion.',
-    },
-  ]
 
   return (
     <section ref={ref} className="section-padding">
-      <div className="mx-auto px-6 sm:px-8 lg:px-12 xl:px-24">
+      <div className="mx-auto px-6 sm:px-8 lg:px-30 xl:px-48">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}

@@ -67,7 +67,7 @@ export default function Testimonials() {
   return (
     <>
       <motion.div
-      className="mx-auto px-6 sm:px-8 lg:px-12 xl:px-24 mb-16">
+      className="mx-auto px-6 sm:px-8 lg:px-30 xl:px-48 mb-16">
           {/* Label */}
           <p className="text-[#FBBD00] mb-4 text-sm capitalize tracking-widest font-mono">
             Testimonials

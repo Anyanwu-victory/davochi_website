@@ -4,12 +4,21 @@ import Button from "../Button";
 import { ArrowRight } from "lucide-react";
 import { projects } from "@/lib/proj";
 
-const Projects = () => {
+const ProjectMore = () => {
   const allProjects = projects;
 
   return (
-    <section className="py-20 lg:py-0 ">
-      <div className="mx-auto px-6 sm:px-8 lg:px-30 xl:px-48 ">
+    <section className="py-20  mt-10">
+      <div className="max-w-6xl mx-auto px-4 xl:px-2 pb-8">
+        <div className="pb-10">
+          <p className="text-[20px] font-semibold text-[#FBBD00] tracking-widest font-inter">
+            Explore
+          </p>
+          <h2 className="text-[30px] lg:text-[47px] font-inter font-bold text-black ">
+            More Projects from Davochi Multihomes
+          </h2>
+        </div>
+
         <div className="space-y-10 gap-6 lg:gap-8 ">
           {allProjects.map((project) => (
             <ProjectCard
@@ -23,7 +32,7 @@ const Projects = () => {
           ))}
         </div>
 
-        <div>
+        {/* <div>
           <div className=" justify-start lg:justify-start mt-4 lg:flex">
             <a href="/projects">
               <Button className=" text-black px-4 md:px-0 py-3 inline-flex items-center gap-4">
@@ -32,10 +41,10 @@ const Projects = () => {
               </Button>
             </a>
           </div>
-        </div>
+        </div> */}
       </div>
     </section>
   );
 };
 
-export default Projects;
+export default ProjectMore;
