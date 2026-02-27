@@ -1,8 +1,12 @@
 import React from "react";
 import Hero from "@/components/about/Hero";
 import Team from "@/components/about/Team"
+import { getTeamMembers } from "@/sanity/lib/data";
 
-const AboutPage = () => {
+export default async function AboutPage() {
+  const members = await getTeamMembers()
+ 
+  console.log(members);
   return (
     <div className="min-h-screen">
       <div>
@@ -10,10 +14,8 @@ const AboutPage = () => {
       </div>
 
       <div>
-        <Team/>
+        <Team members={members}/>
       </div>
     </div>
   );
 };
-
-export default AboutPage;

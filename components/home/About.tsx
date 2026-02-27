@@ -4,6 +4,7 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import Button from "../Button";
 import { ArrowRight } from "lucide-react";
+import Link from 'next/link';
 
 const About = () => {
   const ref = useRef(null);
@@ -200,11 +201,14 @@ const About = () => {
             </h2>
 
             <div className="hidden justify-center lg:justify-start lg:flex">
-              <Button className="bg-black text-white px-5 py-3 inline-flex items-center gap-4">
-                Learn More
-                <ArrowRight size={24} className="text-[#FFBA32]" />
-              </Button>
-            </div>
+  <Link
+    href="/about"
+    className="bg-black text-white px-5 py-3 inline-flex items-center gap-4 rounded-md "
+  >
+    Learn More
+    <ArrowRight size={24} className="text-[#FFBA32] hover:text-white" />
+  </Link>
+</div>
           </motion.div>
 
           {/* RIGHT */}
@@ -222,11 +226,15 @@ const About = () => {
               what modern housing should look and feel like.
             </p>
 
+            
             <div className="flex justify-center lg:justify-start lg:hidden mt-6">
-              <Button className="bg-black text-white px-5 py-3 inline-flex items-center gap-4">
-                Learn More
-                <ArrowRight size={24} className="text-[#FFBA32]" />
-              </Button>
+              <Link
+    href="/about"
+    className="bg-black text-white px-5 py-3 inline-flex items-center gap-4 rounded-md transition-all duration-200 "
+  >
+    Learn More
+    <ArrowRight size={24} className="text-[#FFBA32]" />
+  </Link>
             </div>
           </motion.div>
         </div>

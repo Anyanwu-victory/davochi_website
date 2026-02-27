@@ -328,3 +328,6 @@ export function getProjectBySlug(slug: string): Project | undefined {
 export function generateStaticParams() {
   return projects.map((p) => ({ slug: p.slug }))
 }
+
+
+

@@ -12,6 +12,19 @@ import Button from "../Button";
 import { iconComponents } from "../icons";
 import MorphButton from "../ui/morphButton";
 
+// ── Type matching your Sanity schema ─────────────────────────────────────────
+interface CompanyStats  {
+  _id:   string
+  label:  string
+  number:  number
+  suffix: string
+  icon:   string
+}
+
+interface StatProps  {
+  stat: CompanyStats[];
+}
+
 // Counter animation hook
 function useCounter(end: number, duration: number = 2) {
   const count = useMotionValue(0);
@@ -52,21 +65,10 @@ function AnimatedNumber({
   );
 }
 
-const AboutWithStats = () => {
+const AboutWithStats = ({ stats }: StatProps)  => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
-  const stats = [
-    { number: 1000, suffix: "+", label: "Homes Built", icon: "homeBuilt" },
-    {
-      number: 1000,
-      suffix: "+",
-      label: "Global Clients",
-      icon: "globalClients",
-    },
-    { number: 30, suffix: "+", label: "Awards", icon: "awards" },
-    { number: 10, suffix: "+", label: "Projects", icon: "projects" },
-  ];
 
   return (
     <section
@@ -107,7 +109,7 @@ const AboutWithStats = () => {
             relative lg:absolute
             lg:-bottom-70 lg:left-1/2 lg:-translate-x-1/2 lg:translate-y-1/3
             w-full   lg:px-0
-            lg:w-[90%] lg:max-w-6xl
+            lg:w-[95%] lg:max-w-6xl
              lg:mt-0 
           "
         >
