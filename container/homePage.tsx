@@ -14,7 +14,7 @@ import MiddleImageSection from "@/components/home/MiddleImageSection";
 import { motion, useInView } from "framer-motion";
 import Button from "@/components/Button";
 
-import { getStats, getServices } from "@/sanity/lib/data";
+import { getStats, getServices, getFaqs, getTestimonials } from "@/sanity/lib/data";
 
 
 export default async function HomePage() {
@@ -22,6 +22,8 @@ export default async function HomePage() {
 
   const stats = await getStats();
   const services = await getServices();
+  const faqs = await getFaqs();
+  const testimonials = await getTestimonials();
 
   return (
     <div>
@@ -45,11 +47,11 @@ export default async function HomePage() {
       </div>
 
       <div className="mt-10">
-        <FAQ />
+        <FAQ faqs={faqs} />
       </div>
 
       <div className="mt-20">
-        <Testimonials />
+        <Testimonials testimonials={testimonials} />
       </div>
     </div>
   );

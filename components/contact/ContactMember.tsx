@@ -1,52 +1,20 @@
 import React from "react";
 import Image from "next/image";
 
-const members = [
-  {
-    name: "Dr. Chioma Ugwu",
-    role: "Director, Business Development",
-    email: "chioma.ugwu@goscoveafrica.com",
-    image: "/image/contact-member-image-1.jpg",
-  },
-  {
-    name: "Sakana D. Philip",
-    role: "Director, Corporate Communications & Branding",
-    email: "sakana.dilip@goscoveafrica.com",
-    image: "/image/contact-member-image-2.png",
-  },
-  {
-    name: "QS Bridget O. Musa (FNIQS RQS MBA)",
-    role: "Commercial Director",
-    email: "bridget.musa@goscoveafrica.com",
-    image: "/team/bridget.jpg",
-  },
-  {
-    name: "Nafisa Aliyu",
-    role: "Head, Digital Marketing",
-    email: "nafisa.aliyu@goscoveafrica.com",
-    image: "/team/nafisa.jpg",
-  },
-  {
-    name: "Fatima Mbaka",
-    role: "Head, Customer Service",
-    email: "fatima.mbaka@goscoveafrica.com",
-    image: "/team/fatima.jpg",
-  },
-  {
-    name: "Blessing Chinedu-Uzoh",
-    role: "Head, Health and Safety Environment",
-    email: "chinedu.uzoh@goscoveafrica.com",
-    image: "/team/blessing.jpg",
-  },
-  {
-    name: "Tosin Afolabi",
-    role: "Head of Project Monitoring Office",
-    email: "afolabi.tosin@goscoveafrica.com",
-    image: null, // fallback avatar
-  },
-];
+interface ContactMembers {
+  _id: string
+  name: string
+  role: string
+  email: string
+  image: string | null
+}
 
-const ContactMember = () => {
+interface MemberProps {
+  members: ContactMembers[];
+}
+
+
+const ContactMember =  ({ members }: MemberProps)  => {
   return (
     <section>
       {/* Content */}
@@ -80,8 +48,8 @@ const ContactMember = () => {
 
         <div>
           <div className="mx-auto grid grid-cols-2 lg:grid-cols-3 gap-x-1 md:gap-x-12 gap-y-12 mt-7 mb-10">
-            {members.map((member, index) => (
-              <div key={index} className="flex items-start gap-4">
+            {members.map((member) => (
+              <div key={member._id} className="flex items-start gap-4">
                 {/* Avatar */}
                 <div className="w-10 h-10 md:w-16 md:h-16 rounded-full overflow-hidden shrink-0 bg-yellow-500">
                   {member.image ? (

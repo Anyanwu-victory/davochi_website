@@ -170,4 +170,4 @@ const HouseCard = ({
   )
 }
 
-export default HouseTypesCarousel
+export default HouseTypesCarousel;

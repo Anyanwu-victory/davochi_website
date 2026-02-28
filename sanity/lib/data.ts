@@ -14,6 +14,7 @@ import {
   statsQuery,
   servicesQuery,
   testimonialsQuery,
+  faqQuery,
 } from './queries'
 
 // ── Image helper ──────────────────────────────────────────────────────────────
@@ -67,11 +68,12 @@ export async function getTeamMembers() {
 }
 
 // ── Contact Members ───────────────────────────────────────────────────────────
+
 export async function getContactMembers() {
   const raw = await client.fetch(contactMembersQuery)
   return (raw ?? []).map((m: any) => ({
     ...m,
-    image: toUrl(m.image),
+    image: m.image ? urlFor(m.image).width(64).height(64).fit('crop').auto('format').url() : null,
   }))
 }
 
@@ -91,5 +93,18 @@ export async function getServices() {
 
 // ── Testimonials ──────────────────────────────────────────────────────────────
 export async function getTestimonials() {
-  return client.fetch(testimonialsQuery)
+  const raw = await client.fetch(testimonialsQuery)
+  return (raw ?? []).map((t: any) => ({
+    ...t,
+    date: t.date
+      ? new Date(t.date).toLocaleDateString('en-GB')  // → "21/07/2025"
+      : '',
+  }))
+}
+
+
+// ── Faqs ──────────────────────────────────────────────────────────────
+export async function getFaqs() {
+  const raw = await client.fetch(faqQuery)
+  return raw ?? []
 }

@@ -104,3 +104,10 @@ export const testimonialsQuery = `
     date
   }
 `
+export const faqQuery = `
+  *[_type == "faq"] | order(question asc) {
+    _id,
+    question,
+    answer
+  }
+`

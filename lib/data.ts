@@ -70,3 +70,12 @@ export const faqs = [
       answer: 'We offer flexible payment plans tailored to your financial situation. Our standard schedule includes initial deposit, milestone payments during construction, and final payment upon completion.',
     },
   ]
+
+
+
+
+
+
+
+
+

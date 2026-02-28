@@ -1,8 +1,12 @@
 import React from 'react'
 import Hero from '@/components/contact/Hero';
 import ContactMember from '@/components/contact/ContactMember';
+import { getContactMembers } from "@/sanity/lib/data";
 
-const contactPage = () => {
+export default async function contactPage() {
+
+  const members = await getContactMembers();
+
   return (
  <div className="min-h-screen">
       <div>
@@ -10,10 +14,8 @@ const contactPage = () => {
       </div>
 
       <div>
-        <ContactMember />
+        <ContactMember members={members} />
       </div>
     </div>
   )
 }
-
-export default contactPage;

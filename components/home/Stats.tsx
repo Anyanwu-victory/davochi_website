@@ -22,7 +22,7 @@ interface CompanyStats  {
 }
 
 interface StatProps  {
-  stat: CompanyStats[];
+  stats: CompanyStats[];
 }
 
 // Counter animation hook

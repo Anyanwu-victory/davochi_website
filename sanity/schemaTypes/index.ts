@@ -7,9 +7,10 @@ import { statsType } from './statsType';
 import { teamMemberType } from './teamMemberType';
 import { testimonialType } from './testimonialType';
 import { contactMemberType } from './contactMemberType';
+import { faqType } from './faqType'
 
 
 
 export const schema: { types: SchemaTypeDefinition[] } = {
-  types: [blockContentType,  projectType, statsType, servicesType, testimonialType, contactMemberType, teamMemberType ],
+  types: [blockContentType,  projectType, statsType, servicesType, testimonialType, contactMemberType, teamMemberType, faqType ],
 }

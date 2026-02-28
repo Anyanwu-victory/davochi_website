@@ -4,28 +4,20 @@ import { motion, useAnimation, useInView } from "framer-motion";
 import { Star } from "lucide-react";
 import { useEffect, useRef } from "react";
 
-const testimonials = [
-  {
-    date: "21/7/2025",
-    title: "As first-time buyers",
-    text: "They made sure we didn't settle for anything less than our dream home.",
-    author: "Chidi Okekwe, Senior Partner at LexVanguard Legal.",
-  },
-  {
-    date: "21/7/2025",
-    title: "As first-time buyers",
-    text: "They made sure we didn't settle for anything less than our dream home.",
-    author: "Chidi Okekwe, Senior Partner at LexVanguard Legal.",
-  },
-  {
-    date: "21/7/2025",
-    title: "As first-time buyers",
-    text: "They made sure we didn't settle for anything less than our dream home.",
-    author: "Chidi Okekwe, Senior Partner at LexVanguard Legal.",
-  },
-];
+// ── Type ──────────────────────────────────────────────────────────────────────
+interface Testimonial {
+  _id:    string
+  date:   string
+  title:  string
+  text:   string
+  author: string
+}
 
-export default function Testimonials() {
+interface TestimonialsProps {
+  testimonials: Testimonial[]
+}
+
+export default function Testimonials({ testimonials }: TestimonialsProps)  {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   const controlsTop = useAnimation();
@@ -64,6 +56,10 @@ export default function Testimonials() {
     startAnimation();
   };
 
+  // Duplicate for infinite scroll effect
+  const doubled = [...testimonials, ...testimonials];
+
+
   return (
     <>
       <motion.div
@@ -87,23 +83,23 @@ export default function Testimonials() {
 
       {/* TOP ROW */}
       <motion.div className="flex gap-6 mb-8" animate={controlsTop}>
-        {[...testimonials, ...testimonials].map((item, index) => (
-          <Card key={index} item={item} onClick={pauseTemporarily} />
-        ))}
+        {doubled.map((item, index) => (
+            <Card key={index} item={item} onClick={pauseTemporarily} />
+          ))}
       </motion.div>
 
       {/* BOTTOM ROW */}
       <motion.div className="hidden md:flex gap-6" animate={controlsBottom}>
-        {[...testimonials, ...testimonials].map((item, index) => (
-          <Card key={index} item={item} onClick={pauseTemporarily} />
-        ))}
+         {doubled.map((item, index) => (
+            <Card key={index} item={item} onClick={pauseTemporarily} />
+          ))}
       </motion.div>
     </section>
     </>
   );
 }
 
-function Card({ item, onClick }: any) {
+function Card({ item, onClick }: { item: Testimonial; onClick: () => void }) {
   return (
     <div
       onClick={onClick}
