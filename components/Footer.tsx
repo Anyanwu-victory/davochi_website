@@ -3,6 +3,7 @@
 import { motion, useInView } from "framer-motion";
 import { useRef, useState } from "react";
 import Button from './Button'
+import  Link from 'next/link';
 
 const Footer = () => {
   const ref = useRef(null);
@@ -127,19 +128,19 @@ const Footer = () => {
 
             <div className="flex gap-22 text-[16px] text-[#F0F4F8]">
               <div className="flex flex-col gap-8">
-                <a href="/">Home</a>
-                <a href="#">About</a>
-                <a href="#">Careers</a>
-                <a href="#" className="whitespace-nowrap">Our Homes</a>
-                <a href="#">Contact</a>
+                <Link href="/">Home</Link>
+                <Link href="#">About</Link>
+                <Link href="#">Careers</Link>
+                <Link href="#" className="whitespace-nowrap">Our Homes</Link>
+                <Link href="#">Contact</Link>
               </div>
 
               <div className="flex flex-col gap-8">
-                <a href="#" className="whitespace-nowrap">Agent Registration</a>
-                <a href="#">Projects</a>
-                <a href="#" className="whitespace-nowrap">Term of service</a>
-                <a href="#">Blog</a>
-                <a href="#" className="whitespace-nowrap" >Privacy policy</a>
+                <Link href="#" className="whitespace-nowrap">Agent Registration</Link>
+                <Link href="#">Projects</Link>
+                <Link href="#" className="whitespace-nowrap">Term of service</Link>
+                <Link href="#">Blog</Link>
+                <Link href="#" className="whitespace-nowrap" >Privacy policy</Link>
               </div>
             </div>
           </div>

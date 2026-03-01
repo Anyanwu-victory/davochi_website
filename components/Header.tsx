@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 import { usePathname } from 'next/navigation'
 import Image from 'next/image'
+import Link from 'next/link';
 import { Menu, X } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import Button from './Button'
@@ -67,7 +68,7 @@ const Header = () => {
               transition={{ duration: 0.5 }}
               className="text-2xl font-bold relative z-10"
             >
-              <a href='/'>
+              <Link href='/'>
               <Image 
                 src="/Logo.svg" 
                 alt="Logo" 
@@ -75,7 +76,7 @@ const Header = () => {
                 height={100} 
                 className="inline-block ml-2" 
               />
-              </a>
+              </Link>
             </motion.div>
 
             {/* Desktop Navigation */}
@@ -101,14 +102,14 @@ const Header = () => {
               transition={{ duration: 0.5 }}
               className="hidden md:block relative z-10"
             >
-              <a href="/contact">
+              <Link href="/contact">
               <Button 
                 variant="outline" 
                 className="border-2 border-white text-white hover:bg-white/10"
               >
                 Book a Tour
               </Button>
-              </a>
+              </Link>
             </motion.div>
 
             {/* Mobile Menu Button */}
@@ -146,14 +147,14 @@ const Header = () => {
           >
             <div className="container-custom py-4 space-y-4 px-8">
               {navLinks.map((link) => (
-                <a
+                <Link
                   key={link.name}
                   href={link.href}
                   onClick={() => setIsMobileMenuOpen(false)}
                   className="block text-white hover:text-gold-500 transition-colors"
                 >
                   {link.name}
-                </a>
+                </Link>
               ))}
               <a href="/contact">
                 <Button 

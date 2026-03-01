@@ -33,10 +33,10 @@ const ContactMember =  ({ members }: MemberProps)  => {
 
             {/* paragraph */}
             <p className="font-inter text-[16px] text-[#585858] leading-relaxed mb-6">
-              When it comes to finding your ideal home, engaging with Cosgrove's
+              When it comes to finding your ideal home, engaging with Cosgrove&apos;s
               expert advisors is your key to making the perfect choice. Our
               seasoned professionals understand that a home is more than just a
-              space; it's a reflection of your lifestyle and aspirations. With a
+              space; it&apos;s a reflection of your lifestyle and aspirations. With a
               deep knowledge of our diverse range of properties and an attentive
               ear to your preferences, they are dedicated to guiding you towards
               a residence that resonates with you on every level. Let us
