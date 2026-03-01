@@ -16,8 +16,14 @@ export function generateStaticParams() {
 }
 
 // ─── Page ─────────────────────────────────────────────────────────────────────
-export default function ProjectPage({ params }: { params: { slug: string } }) {
-  const project = getProjectBySlug(params.slug)
+export default async function ProjectPage({
+  params,
+}: {
+  params: Promise<{ slug: string }>
+}) {
+  const { slug } = await params
+
+  const project = getProjectBySlug(slug)
   if (!project) notFound()
 
   return (
@@ -49,9 +55,7 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
         projectTitle={project.title}
       />
 
-      <ProjectMore
-      
-      />
+      <ProjectMore />
 
     </main>
   )
