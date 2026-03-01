@@ -118,7 +118,6 @@ const HouseTypesCarousel = () => {
 const HouseCard = ({
   title,
   subtitle,
-  category,
   mainImage,
   slug,
 }: {
