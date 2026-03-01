@@ -31,17 +31,32 @@ export default function EstateFeatures({ features }: EstateFeaturesProps) {
     setCanScrollNext(api.canScrollNext())
   }, [])
 
-  useEffect(() => {
-    if (!api) return
+ useEffect(() => {
+  if (!api) return
+
+  const handleInit = () => {
     setTotal(api.scrollSnapList().length)
-    onSelect(api)
-    api.on('select', () => onSelect(api))
-    api.on('reInit', () => onSelect(api))
-    return () => {
-      api.off('select', () => onSelect(api))
-      api.off('reInit', () => onSelect(api))
-    }
-  }, [api, onSelect])
+    setCurrent(api.selectedScrollSnap())
+    setCanScrollPrev(api.canScrollPrev())
+    setCanScrollNext(api.canScrollNext())
+  }
+
+  const handleSelect = () => {
+    setCurrent(api.selectedScrollSnap())
+    setCanScrollPrev(api.canScrollPrev())
+    setCanScrollNext(api.canScrollNext())
+  }
+
+  handleInit()
+
+  api.on('select', handleSelect)
+  api.on('reInit', handleInit)
+
+  return () => {
+    api.off('select', handleSelect)
+    api.off('reInit', handleInit)
+  }
+}, [api]);
 
   return (
     <section className="max-w-6xl mx-auto px-4  xl:px-2 pb-12">

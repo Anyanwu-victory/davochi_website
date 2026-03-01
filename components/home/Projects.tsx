@@ -3,6 +3,7 @@ import ProjectCard from "@/components/ProjectCard";
 import Button from "../Button";
 import { ArrowRight } from "lucide-react";
 import { projects } from "@/lib/proj";
+import Link from "next/link"
 
 const Projects = () => {
   const allProjects = projects;
@@ -25,12 +26,12 @@ const Projects = () => {
 
         <div>
           <div className=" justify-start lg:justify-start mt-4 lg:flex">
-            <a href="/projects">
+            <Link href="/projects">
               <Button className=" text-black px-4 md:px-0 py-3 inline-flex items-center gap-4">
                 See all Projects
                 <ArrowRight size={24} className="text-[#FFBA32]" />
               </Button>
-            </a>
+            </Link>
           </div>
         </div>
       </div>

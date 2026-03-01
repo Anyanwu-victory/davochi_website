@@ -14,26 +14,23 @@ export default function PropertyTypes({ propertyTypes }: PropertyTypesProps) {
 
       <div className="flex gap-4 overflow-x-auo pb-2">
         {propertyTypes.map((type, i) => (
-          <div>
-          <div
-            key={i}
-            className="min-w-45 max-w-49 rounded-xl 
-            overflow-hidden shrink-0 
-            transition-shadow cursor-pointer"
-          >
-            <div className="relative h-75 rounded-[10px] border ">
-              <Image
-                src={type.image}
-                alt={type.title}
-                fill
-                className="object-cover"
-              />
+          <div key={i}>
+            <div
+              className="min-w-45 max-w-49 rounded-xl 
+                        overflow-hidden shrink-0 
+                        transition-shadow cursor-pointer"
+            >
+              <div className="relative h-75 rounded-[10px] border">
+                <Image
+                  src={type.image}
+                  alt={type.title}
+                  fill
+                  className="object-cover"
+                />
+              </div>
             </div>
 
-            
-          </div>
-
-          <div className="py-5 min-w-45 max-w-49">
+            <div className="py-5 min-w-45 max-w-49">
               <p className="text-[20px] font-medium font-inter text-gray-900">
                 {type.title}
               </p>
@@ -41,7 +38,7 @@ export default function PropertyTypes({ propertyTypes }: PropertyTypesProps) {
                 {type.description}
               </p>
             </div>
-            </div>
+          </div>
         ))}
       </div>
     </section>
