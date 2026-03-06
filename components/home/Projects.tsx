@@ -2,19 +2,28 @@ import React from "react";
 import ProjectCard from "@/components/ProjectCard";
 import Button from "../Button";
 import { ArrowRight } from "lucide-react";
-import { projects } from "@/lib/proj";
+import { getAllProjects } from "@/sanity/lib/data";
 import Link from "next/link"
 
-const Projects = () => {
-  const allProjects = projects;
+interface Project {
+  _id:              string
+  fullTitle:        string
+  subtitle:         string
+  shortDescription: string
+  mainImage:        string
+  slug:             string
+}
+
+const Projects = async () => {
+  const projects: Project[] = await getAllProjects()
 
   return (
     <section className="py-20 lg:py-0 ">
       <div className="mx-auto px-6 sm:px-8 lg:px-30 xl:px-48 ">
         <div className="space-y-10 gap-6 lg:gap-8 ">
-          {allProjects.map((project) => (
+           {projects.map((project: Project) => (
             <ProjectCard
-              key={project.id}
+              key={project._id}
               title={project.fullTitle}
               subtitle={project.subtitle}
               description={project.shortDescription}

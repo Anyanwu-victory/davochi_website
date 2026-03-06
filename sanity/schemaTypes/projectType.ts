@@ -51,23 +51,23 @@ export const projectType =  defineType({
       description: 'e.g. "Central Business District, Abuja"',
     }),
 
-    defineField({
-      name: 'category',
-      title: 'Category',
-      type: 'string',
-      description: 'e.g. "Mall Project", "Villa Project"',
-      options: {
-        list: [
-          { title: 'Mall Project',      value: 'Mall Project' },
-          { title: 'Villa Project',     value: 'Villa Project' },
-          { title: 'Apartment Project', value: 'Apartment Project' },
-          { title: 'Villas Project',    value: 'Villas Project' },
-          { title: 'Terrace Project',   value: 'Terrace Project' },
-          { title: 'Duplex Project',    value: 'Duplex Project' },
-        ],
-      },
-      validation: (Rule) => Rule.required(),
-    }),
+    // defineField({
+    //   name: 'category',
+    //   title: 'Category',
+    //   type: 'string',
+    //   description: 'e.g. "Mall Project", "Villa Project"',
+    //   options: {
+    //     list: [
+    //       { title: 'Mall Project',      value: 'Mall Project' },
+    //       { title: 'Villa Project',     value: 'Villa Project' },
+    //       { title: 'Apartment Project', value: 'Apartment Project' },
+    //       { title: 'Villas Project',    value: 'Villas Project' },
+    //       { title: 'Terrace Project',   value: 'Terrace Project' },
+    //       { title: 'Duplex Project',    value: 'Duplex Project' },
+    //     ],
+    //   },
+    //   validation: (Rule) => Rule.required(),
+    // }),
 
     // ── Descriptions ──────────────────────────────────────────────────────
     defineField({
@@ -268,7 +268,7 @@ export const projectType =  defineType({
               title: 'Image',
               type: 'image',
               options: { hotspot: true },
-              validation: (Rule) => Rule.required(),
+              
             }),
             defineField({
               name: 'category',
@@ -282,7 +282,7 @@ export const projectType =  defineType({
                 layout: 'radio',
               },
               initialValue: 'exterior',
-              validation: (Rule) => Rule.required(),
+              
             }),
           ],
           preview: {

@@ -19,7 +19,6 @@ import {
 } from "@/components/ui/breadcrumb";
 
 type ProjectInfoProps = {
-  category: string;
   fullTitle: string;
   description: string;
   stats: ProjectStat[];
@@ -27,7 +26,6 @@ type ProjectInfoProps = {
 };
 
 export default function ProjectInfo({
-  category,
   fullTitle,
   description,
   stats,
@@ -41,9 +39,42 @@ export default function ProjectInfo({
       {/* Title */}
       <div>
         {/* Breadcrumbs home/project/davochi-mall Tag */}
-        <p className="text-[#FBBD00] mb-4 text-sm md:text-[20px] font-semibold tracking-widest font-inter">
-          {category}
-        </p>
+       <div>
+        {/* Breadcrumb: Home / Projects / [Project Title] */}
+        <Breadcrumb className="mb-4">
+          <BreadcrumbList>
+            <BreadcrumbItem>
+              <BreadcrumbLink
+                href="/"
+                className="text-sm md:text-base text-gray-400 hover:text-[#FBBD00] transition-colors font-inter"
+              >
+                Home
+              </BreadcrumbLink>
+            </BreadcrumbItem>
+
+            <BreadcrumbSeparator />
+
+            <BreadcrumbItem>
+              <BreadcrumbLink
+                href="/projects"
+                className="text-sm md:text-base text-gray-400 hover:text-[#FBBD00] transition-colors font-inter"
+              >
+                Projects
+              </BreadcrumbLink>
+            </BreadcrumbItem>
+
+            <BreadcrumbSeparator />
+
+            {/* Current page — not a link */}
+            <BreadcrumbItem>
+              <BreadcrumbPage className="text-sm md:text-base text-[#FBBD00] font-semibold font-inter">
+                {fullTitle}
+              </BreadcrumbPage>
+            </BreadcrumbItem>
+          </BreadcrumbList>
+        </Breadcrumb>
+
+        </div>
 
         {/* Title */}
         <h1

@@ -6,7 +6,7 @@ import Image from "next/image";
 import Button from "@/components/Button";
 
 // ── Replace with your WhatsApp number (country code + number, no + or spaces) ─
-const WHATSAPP_NUMBER = process.env.NEXT_WHATSAPP_NUMBER;
+const WHATSAPP_NUMBER =process.env.NEXT_WHATSAPP_NUMBER;
 
 const Hero = () => {
   const ref = useRef(null);

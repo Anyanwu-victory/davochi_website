@@ -11,6 +11,18 @@ import { useRef, useState, useEffect } from "react";
 import { iconComponents } from "../icons";
 import MorphButton from "../ui/morphButton";
 
+interface CompanyStats  {
+  _id:   string
+  label:  string
+  number:  number
+  suffix: string
+  icon:   string
+}
+
+interface StatProps  {
+  stats: CompanyStats[];
+}
+
 // Counter animation hook
 function useCounter(end: number, duration: number = 2) {
   const count = useMotionValue(0);
@@ -51,21 +63,10 @@ function AnimatedNumber({
   );
 }
 
-const Hero = () => {
+const Hero = ({ stats }: StatProps) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
-  const stats = [
-    { number: 1000, suffix: "+", label: "Homes Built", icon: "homeBuilt" },
-    {
-      number: 1000,
-      suffix: "+",
-      label: "Global Clients",
-      icon: "globalClients",
-    },
-    { number: 30, suffix: "+", label: "Awards", icon: "awards" },
-    { number: 10, suffix: "+", label: "Projects", icon: "projects" },
-  ];
 
   return (
     <section id="home" className="">
@@ -189,7 +190,7 @@ const Hero = () => {
 
             {/* CTA Cards Section */}
             <div className=" pt-10 md:pt-10 lg:pt-13 ">
-              <div className=" px-8 md:px-16 lg:px-24">
+              <div className=" px-4 md:px-16 lg:px-24">
                 <div className="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
                   {/* Download Brochures Card */}
                   <motion.div

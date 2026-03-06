@@ -5,7 +5,6 @@ import {
   useInView,
 } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
-import HouseTypesCarousel from "./HouseTypeCarousel";
 
 const Hero = () => {
   const ref = useRef(null);
@@ -29,7 +28,7 @@ const Hero = () => {
       </div>
 
       {/* Content */}
-      <div className="mx-auto px-6 sm:px-24 lg:px-30 xl:px-48  py-5">
+      <div className="mx-auto px-6 sm:px-24 lg:px-30 xl:px-48  py-4">
         <motion.div className="mt-5 flex flex-col lg:flex-row gap-5 justify-between">
           {/* Label */}
           <div>
@@ -64,7 +63,6 @@ const Hero = () => {
 
       </div>
 
-      <HouseTypesCarousel/>
     </section>
   );
 };

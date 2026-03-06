@@ -158,8 +158,8 @@ const AboutWithStats = ({ stats }: StatProps)  => {
 
             {/* CTA Cards Section */}
             <div className=" pt-10 md:pt-10 lg:pt-13 ">
-              <div className=" px-8 md:px-16 lg:px-24">
-                <div className="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
+              <div className=" px-4 md:px-16 lg:px-24">
+                <div className="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto ">
 
                   {/* Download Brochures Card */}
                   <motion.div

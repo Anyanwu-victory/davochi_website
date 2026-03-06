@@ -1,18 +1,21 @@
 // app/projects/[slug]/page.tsx
 
 import { notFound } from 'next/navigation'
-import { getProjectBySlug, projects } from '@/lib/proj'
+import { getProjectBySlug, getProjectSlugs } from '@/sanity/lib/data'
 
-import HeroSection from '@/components/proj/HeroSection';
-import EstateFeatures from '@/components/proj/EstateFeatures';
-import PropertyTypes from '@/components/proj/PropertyTypes';
-import ProjectInfo from '@/components/proj/ProjectInfo';
-import ProjectSights from '@/components/proj/ProjectSights';
-import ProjectMore from '@/components/proj/ProjectMore';
+import HeroSection    from '@/components/proj/HeroSection'
+import EstateFeatures from '@/components/proj/EstateFeatures'
+import PropertyTypes  from '@/components/proj/PropertyTypes'
+import ProjectInfo    from '@/components/proj/ProjectInfo'
+import ProjectSights  from '@/components/proj/ProjectSights'
+import ProjectMore    from '@/components/proj/ProjectMore'
 
 // ─── Static Params (SSG) ──────────────────────────────────────────────────────
-export function generateStaticParams() {
-  return projects.map((p) => ({ slug: p.slug }))
+// Bug 1 fixed: must be async to use await inside
+export async function generateStaticParams() {
+  // Bug 2 fixed: use getProjectSlugs — fetches only slugs, cheaper than getAllProjects
+  const slugs = await getProjectSlugs()
+  return slugs.map((slug: string) => ({ slug }))
 }
 
 // ─── Page ─────────────────────────────────────────────────────────────────────
@@ -23,7 +26,8 @@ export default async function ProjectPage({
 }) {
   const { slug } = await params
 
-  const project = getProjectBySlug(slug)
+  // Bug 3 fixed: was missing await — project was a Promise, not the data
+  const project = await getProjectBySlug(slug)
   if (!project) notFound()
 
   return (
@@ -35,7 +39,6 @@ export default async function ProjectPage({
       />
 
       <ProjectInfo
-        category={project.category}
         fullTitle={project.fullTitle}
         description={project.description}
         stats={project.stats}
