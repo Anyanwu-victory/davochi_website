@@ -201,5 +201,8 @@ input:-webkit-autofill:active {
   .shadow-stats {
     box-shadow: 0px 4px 10px 0px #0000000D;
   }
- 
+ .about-clip {
+ clip-path: polygon(50% 0%, 100% 0, 100% 76%, 54% 95%, 0 95%, 0 21%, 0 0);
+
+ }
 }
