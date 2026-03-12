@@ -1,6 +1,6 @@
 import React from 'react'
-import Hero from '@/components/contact/Hero';
 import ContactMember from '@/components/contact/ContactMember';
+import Hero from '@/components/contact/Hero'
 import { getContactMembers } from "@/sanity/lib/data";
 
 export default async function contactPage() {

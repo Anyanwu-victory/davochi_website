@@ -124,7 +124,7 @@ const About = () => {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="w-full lg:w-3/5 max-w-xl lg:pr-12"
           >
-            <p className="text-black/60 leading-relaxed text-[15px] xl:text-base">
+            <p className="text-black/60 leading-relaxed text-[12px] md:text-[15px] xl:text-base px-2.5 md:px-0">
               Davochi Multihomes and Interiors is a family-owned real estate and
               development company built on the timeless pillars of hard work,
               integrity, excellence, and luxury craftsmanship. With operations

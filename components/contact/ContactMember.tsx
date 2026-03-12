@@ -75,9 +75,12 @@ const ContactMember =  ({ members }: MemberProps)  => {
                   <p className="text-xs md:text-[16px] text-[#585858] leading-snug font-inter">
                     {member.role}
                   </p>
-                  <p className="text-xs md:text-[16px] text-[#FFBA32] break-all">
+                  {/* <p className="text-xs md:text-[16px] text-[#FFBA32] break-all">
                     {member.email}
-                  </p>
+                  </p> */}
+                  <a href={`mailto:${member.email}`}  className="text-xs md:text-[16px] text-[#FFBA32] break-all">
+ {member.email}
+                  </a>
                 </div>
               </div>
             ))}

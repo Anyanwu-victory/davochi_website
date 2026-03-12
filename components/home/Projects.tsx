@@ -34,7 +34,7 @@ const Projects = async () => {
         </div>
 
         <div>
-          <div className=" justify-start lg:justify-start mt-4 lg:flex">
+          <div className=" justify-start  mt-4 lg:flex">
             <Link href="/projects">
               <Button className=" text-black px-4 md:px-0 py-3 inline-flex items-center gap-4">
                 See all Projects

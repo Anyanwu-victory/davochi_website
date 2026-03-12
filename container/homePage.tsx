@@ -27,7 +27,7 @@ export default async function HomePage() {
 
   return (
     <div>
-      <Hero />
+      <Hero /> 
       <About />
       <div className="h-full lg:mb-100">
         <Stats stats={stats} />

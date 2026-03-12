@@ -29,7 +29,7 @@ const Services = ({ services }: ServiceProps) => {
   };
 
   return (
-    <section ref={ref} id="services" className="py-16 md:py-24 bg-white">
+    <section ref={ref} id="services" className="py-16 md:py-24 bg-white overflow-hidden">
       <div className="mx-auto px-6 sm:px-8 lg:px-30 xl:px-48">
         <div className="flex flex-col lg:flex-row gap-10 lg:gap-16">
 
