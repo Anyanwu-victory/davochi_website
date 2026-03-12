@@ -149,14 +149,15 @@ const Hero = ({ stats }: StatProps) => {
         transition={{ duration: 0.5, delay: 0.4  }}
           className="w-full lg:px-0 lg:w-[90%] lg:max-w-6xl lg:my-5 mx-auto ">
           <div className="bg-white shadow-stats px-6 md:p-10 lg:p-12 xl:p-16 mb-30 py-8">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 lg:gap-12 space-y-12 justify-center ">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 lg:gap-12 space-y-12
+             justify-center  ">
               {stats.map((stat, index) => (
                 <motion.div
                   key={index}
                   className="text-center"
                 >
                   {/* Icon and numbers */}
-                  <div className="flex justify-start items-center mb-3 md:mb-4 gap-5">
+                  <div className="flex justify-center items-center mb-3 md:mb-4 gap-5">
                     <div className="w-12 h-12 md:w-14 md:h-14 flex items-center justify-center border border-gray-100">
                       {(() => {
                         const IconComponent =

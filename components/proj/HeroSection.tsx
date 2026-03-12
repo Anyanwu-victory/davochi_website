@@ -9,7 +9,7 @@ type HeroSectionProps = {
 
 export default function HeroSection({ image, title }: HeroSectionProps) {
   return (
-    <section className="relative w-full h-105 md:h-130 overflow-hidden">
+    <section className="relative w-full h-screen items-center justify-center overflow-hidden">
       <div
         className="absolute inset-0 w-full h-full"
         style={{
