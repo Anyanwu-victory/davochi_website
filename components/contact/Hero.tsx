@@ -5,10 +5,11 @@ import { useRef, useState } from "react";
 import Image from "next/image";
 import Button from "@/components/Button";
 
-// ── Replace with your WhatsApp number (country code + number, no + or spaces) ─
-const WHATSAPP_NUMBER =process.env.NEXT_WHATSAPP_NUMBER;
+interface HeroProps {
+  whatsappNumber: string   // ← comes from Sanity, no env var needed
+}
 
-const Hero = () => {
+const Hero = ({whatsappNumber}: HeroProps) => {
   const ref = useRef(null);
 
   const [formData, setFormData] = useState({
@@ -58,7 +59,8 @@ const Hero = () => {
       formData.message,
     ].join("\n")
 
-    const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`
+  // whatsappNumber comes from Sanity — always up to date, no env var needed
+    const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(text)}`
     window.open(url, "_blank")
 
     // Reset form
@@ -104,7 +106,7 @@ const Hero = () => {
 
             {/* Address */}
             <div className="mt-5 bg-black/10 text-[16px] text-black rounded-[5px] px-4 py-3 w-full mb-3">
-              Davochi Multihomes and Interior, Dape
+             You will be Contacted via Whatsapp 
             </div>
 
             {/* Form */}

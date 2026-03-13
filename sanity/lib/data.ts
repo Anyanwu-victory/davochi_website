@@ -15,6 +15,7 @@ import {
   servicesQuery,
   testimonialsQuery,
   faqQuery,
+  siteSettingsQuery
 } from './queries'
 
 // ── Image helper ──────────────────────────────────────────────────────────────
@@ -107,4 +108,11 @@ export async function getTestimonials() {
 export async function getFaqs() {
   const raw = await client.fetch(faqQuery)
   return raw ?? []
+}
+
+
+// ── Site Setting ──────────────────────────────────────────────────────────────
+export async function getSiteSettings() {
+  const res = await client.fetch(siteSettingsQuery)
+  return res ?? { mission: '', vision: '', whatsappNumber: '' }
 }

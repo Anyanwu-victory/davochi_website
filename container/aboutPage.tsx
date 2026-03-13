@@ -1,22 +1,24 @@
 import React from "react";
 import Hero from "@/components/about/Hero";
-import Team from "@/components/about/Team"
-import { getTeamMembers, getStats } from "@/sanity/lib/data";
+import Team from "@/components/about/Team";
+import { getTeamMembers, getStats, getSiteSettings } from "@/sanity/lib/data";
 
 export default async function AboutPage() {
-  const members = await getTeamMembers();
-  const stats = await getStats();
- 
-  console.log(members);
+  // ── Fetch all three in parallel — faster than awaiting one by one ─────────
+  const [members, stats, settings] = await Promise.all([
+    getTeamMembers(),
+    getStats(),
+    getSiteSettings(),
+  ]);
+
   return (
     <div className="min-h-screen">
-      <div>
-        <Hero stats={stats}/>
-      </div>
-
-      <div>
-        <Team members={members}/>
-      </div>
+      <Hero
+        stats={stats}
+        mission={settings.mission}
+        vision={settings.vision}
+      />
+      <Team members={members} />
     </div>
   );
-};
+}

@@ -111,3 +111,11 @@ export const faqQuery = `
     answer
   }
 `
+
+export const siteSettingsQuery = `
+  *[_type == "siteSettings"][0] {
+    mission,
+    vision,
+    whatsappNumber
+  }
+`
