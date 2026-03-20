@@ -143,10 +143,10 @@ const Footer = () => {
                 Write Us
               </h4>
               <a
-                href="mailto:devachihomes@gmail.com"
+                href="mailto:davochimultihomesinteriors001@gmail.com"
                 className="text-[#F0F4F8] text-[16px] hover:text-[#FBBD00] transition-colors"
               >
-                devachihomes@gmail.com
+                davochimultihomesinteriors001@gmail.com
               </a>
             </div>
 
