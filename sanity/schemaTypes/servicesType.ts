@@ -1,5 +1,5 @@
 // sanity/schemas/service.ts
-
+import React from 'react'
 import { defineType, defineField } from 'sanity'
 
 export const servicesType =  defineType({

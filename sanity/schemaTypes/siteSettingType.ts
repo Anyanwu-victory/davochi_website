@@ -1,6 +1,6 @@
 // sanity/schemas/siteSettings.ts
 // ── Singleton document — only ONE of these ever exists ────────────────────────
-
+import React from 'react'
 import { defineType, defineField } from 'sanity'
 
 export const siteSettingType =  defineType({

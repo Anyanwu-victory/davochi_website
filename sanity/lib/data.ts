@@ -18,6 +18,9 @@ import {
   siteSettingsQuery
 } from './queries'
 
+// ── Cache config — webhook handles all revalidation ──────────────────────────
+const CACHE = { next: { revalidate: false } } as const
+ 
 // ── Image helper ──────────────────────────────────────────────────────────────
 const toUrl = (img: any, fallback = '/placeholder.svg'): string =>
   img ? urlFor(img).auto('format').url() : fallback
@@ -27,7 +30,7 @@ const toResizedUrl = (img: any, w: number, h: number, fallback = '/placeholder.s
 
 // ── Projects ──────────────────────────────────────────────────────────────────
 export async function getProjectBySlug(slug: string) {
-  const raw = await client.fetch(projectBySlugQuery, { slug })
+  const raw = await client.fetch(projectBySlugQuery, { slug }, CACHE)
   if (!raw) return null
 
   return {
@@ -46,7 +49,7 @@ export async function getProjectBySlug(slug: string) {
 }
 
 export async function getAllProjects() {
-  const raw = await client.fetch(allProjectsQuery)
+  const raw = await client.fetch(allProjectsQuery, {}, CACHE)
   return (raw ?? []).map((p: any) => ({
     ...p,
     heroImage: toResizedUrl(p.heroImage, 800, 600),
@@ -55,13 +58,13 @@ export async function getAllProjects() {
 }
 
 export async function getProjectSlugs() {
-  const res = await client.fetch(allProjectSlugsQuery)
+  const res = await client.fetch(allProjectSlugsQuery, {}, CACHE)
   return (res ?? []).map((r: any) => r.slug)
 }
 
 // ── Team Members ──────────────────────────────────────────────────────────────
 export async function getTeamMembers() {
-  const raw = await client.fetch(teamMembersQuery)
+  const raw = await client.fetch(teamMembersQuery, {}, CACHE)
   return (raw ?? []).map((m: any) => ({
     ...m,
     image: toResizedUrl(m.image, 640, 800),
@@ -71,7 +74,7 @@ export async function getTeamMembers() {
 // ── Contact Members ───────────────────────────────────────────────────────────
 
 export async function getContactMembers() {
-  const raw = await client.fetch(contactMembersQuery)
+  const raw = await client.fetch(contactMembersQuery, {}, CACHE)
   return (raw ?? []).map((m: any) => ({
     ...m,
     image: m.image ? urlFor(m.image).width(64).height(64).fit('crop').auto('format').url() : null,
@@ -80,12 +83,12 @@ export async function getContactMembers() {
 
 // ── Stats ─────────────────────────────────────────────────────────────────────
 export async function getStats() {
-  return client.fetch(statsQuery)
+  return client.fetch(statsQuery, {}, CACHE)
 }
 
 // ── Services ──────────────────────────────────────────────────────────────────
 export async function getServices() {
-  const raw = await client.fetch(servicesQuery)
+  const raw = await client.fetch(servicesQuery, {}, CACHE)
   return (raw ?? []).map((s: any) => ({
     ...s,
     icon: toUrl(s.icon),
@@ -94,7 +97,7 @@ export async function getServices() {
 
 // ── Testimonials ──────────────────────────────────────────────────────────────
 export async function getTestimonials() {
-  const raw = await client.fetch(testimonialsQuery)
+  const raw = await client.fetch(testimonialsQuery, {}, CACHE)
   return (raw ?? []).map((t: any) => ({
     ...t,
     date: t.date
@@ -106,13 +109,13 @@ export async function getTestimonials() {
 
 // ── Faqs ──────────────────────────────────────────────────────────────
 export async function getFaqs() {
-  const raw = await client.fetch(faqQuery)
+  const raw = await client.fetch(faqQuery, {}, CACHE)
   return raw ?? []
 }
 
 
 // ── Site Setting ──────────────────────────────────────────────────────────────
 export async function getSiteSettings() {
-  const res = await client.fetch(siteSettingsQuery)
+  const res = await client.fetch(siteSettingsQuery, {}, CACHE)
   return res ?? { mission: '', vision: '', whatsappNumber: '' }
 }

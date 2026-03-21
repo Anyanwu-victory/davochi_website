@@ -1,5 +1,5 @@
 // sanity/schemas/stat.ts
-
+import React from 'react'
 import { defineType, defineField } from 'sanity'
 
 export const statsType = defineType({

@@ -1,5 +1,5 @@
 // sanity/schemas/contactMember.ts
-
+import React from 'react'
 import { defineType, defineField } from 'sanity'
 
 export const contactMemberType = defineType({
