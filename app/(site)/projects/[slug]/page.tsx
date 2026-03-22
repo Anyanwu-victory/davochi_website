@@ -15,12 +15,13 @@ import ProjectMore    from '@/components/proj/ProjectMore'
 
 // ← remove generateStaticParams entirely
 
+// ── Next.js 15 always types params as Promise ─────────────────────────────────
 type Props = {
-  params: { slug: string }
+  params: Promise<{ slug: string }>
 }
-
+ 
 export default async function ProjectPage({ params }: Props) {
-  const { slug } = params
+  const { slug } = await params
 
   const project = await getProjectBySlug(slug)
   if (!project) notFound()
