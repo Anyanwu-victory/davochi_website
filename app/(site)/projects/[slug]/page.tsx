@@ -1,7 +1,9 @@
-// app/projects/[slug]/page.tsx
+// app/(site)/projects/[slug]/page.tsx
+
+export const dynamic = 'force-dynamic'
 
 import { notFound } from 'next/navigation'
-import { getProjectBySlug, getProjectSlugs } from '@/sanity/lib/data'
+import { getProjectBySlug } from '@/sanity/lib/data'  // ← remove getProjectSlugs import
 
 import HeroSection    from '@/components/proj/HeroSection'
 import EstateFeatures from '@/components/proj/EstateFeatures'
@@ -10,56 +12,31 @@ import ProjectInfo    from '@/components/proj/ProjectInfo'
 import ProjectSights  from '@/components/proj/ProjectSights'
 import ProjectMore    from '@/components/proj/ProjectMore'
 
-// ─── Static Params (SSG) ──────────────────────────────────────────────────────
-// Bug 1 fixed: must be async to use await inside
-export async function generateStaticParams() {
-  // Bug 2 fixed: use getProjectSlugs — fetches only slugs, cheaper than getAllProjects
-  const slugs = await getProjectSlugs()
-  return slugs.map((slug: string) => ({ slug }))
+// ← remove generateStaticParams entirely
+
+type Props = {
+  params: { slug: string }
 }
 
-// ─── Page ─────────────────────────────────────────────────────────────────────
-export default async function ProjectPage({
-  params,
-}: {
-  params: { slug: string }
-}) {
-  const { slug } =  params
+export default async function ProjectPage({ params }: Props) {
+  const { slug } = params
 
-  // Bug 3 fixed: was missing await — project was a Promise, not the data
   const project = await getProjectBySlug(slug)
   if (!project) notFound()
 
   return (
     <main className="bg-white min-h-screen font-sans">
-
-      <HeroSection
-        image={project.heroImage}
-        title={project.fullTitle}
-      />
-
+      <HeroSection image={project.heroImage} title={project.fullTitle} />
       <ProjectInfo
         fullTitle={project.fullTitle}
         description={project.description}
         stats={project.stats}
         mainImage={project.mainImage}
       />
-
-      <EstateFeatures
-        features={project.estateFeatures}
-      />
-
-      <PropertyTypes
-        propertyTypes={project.propertyTypes}
-      />
-
-      <ProjectSights
-        sights={project.sights}
-        projectTitle={project.title}
-      />
-
+      <EstateFeatures features={project.estateFeatures} />
+      <PropertyTypes propertyTypes={project.propertyTypes} />
+      <ProjectSights sights={project.sights} projectTitle={project.title} />
       <ProjectMore />
-
     </main>
   )
 }
