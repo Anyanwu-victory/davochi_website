@@ -1,4 +1,5 @@
 // components/PropertyTypes.tsx
+'use client'
 
 import Image from "next/image";
 import type { PropertyType } from "@/lib/proj";

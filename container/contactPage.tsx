@@ -1,3 +1,5 @@
+'use client'
+
 import React from 'react'
 import ContactMember from '@/components/contact/ContactMember';
 import Hero from '@/components/contact/Hero'

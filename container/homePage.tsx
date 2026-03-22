@@ -1,3 +1,4 @@
+'use client'
 
 
 import Header from "@/components/Header";
@@ -11,8 +12,6 @@ import FAQ from "@/components/home/FAQ";
 import Testimonials from "@/components/home/Testimonials";
 import MiddleImageSection from "@/components/home/MiddleImageSection";
 
-import { motion, useInView } from "framer-motion";
-import Button from "@/components/Button";
 
 import { getStats, getServices, getFaqs, getTestimonials } from "@/sanity/lib/data";
 

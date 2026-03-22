@@ -1,3 +1,5 @@
+"use client" 
+
 import React from "react";
 import ProjectCard from "@/components/ProjectCard";
 import { getAllProjects } from "@/sanity/lib/data";

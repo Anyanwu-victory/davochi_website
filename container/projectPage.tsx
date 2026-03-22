@@ -1,3 +1,5 @@
+'use client'
+
 import React from 'react'
 import Hero from '@/components/project/Hero';
 import HouseTypesCarousel from '@/components/project/HouseTypeCarousel';
