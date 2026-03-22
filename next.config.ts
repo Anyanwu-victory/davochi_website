@@ -13,6 +13,7 @@ const nextConfig: NextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
+    serverExternalPackages: ['sanity', 'next-sanity'],
 }
 
 export default nextConfig;
