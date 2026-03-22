@@ -13,6 +13,6 @@ export default function robots(): MetadataRoute.Robots {
         disallow: '/studio/',
       },
     ],
-    sitemap: 'https://davochimultihomes.com/sitemap.xml',
+    sitemap: 'https://davochi.ng/sitemap.xml',
   }
 }

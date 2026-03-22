@@ -10,25 +10,25 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // Static pages
   const staticPages: MetadataRoute.Sitemap = [
     {
-      url: 'https://davochimultihomes.com',
+      url: 'https://davochi.ng',
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 1,
     },
     {
-      url: 'https://davochimultihomes.com/about',
+      url: 'https://davochi.ng/about',
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.8,
     },
     {
-      url: 'https://davochimultihomes.com/projects',
+      url: 'https://davochi.ng/projects',
       lastModified: new Date(),
       changeFrequency: 'weekly',
       priority: 0.9,
     },
     {
-      url: 'https://davochimultihomes.com/contact',
+      url: 'https://davochi.ng/contact',
       lastModified: new Date(),
       changeFrequency: 'yearly',
       priority: 0.7,
@@ -37,7 +37,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   // Dynamic project pages
   const projectPages: MetadataRoute.Sitemap = slugs.map((slug) => ({
-    url: `https://davochimultihomes.com/projects/${slug}`,
+    url: `https://davochi.ng/projects/${slug}`,
     lastModified: new Date(),
     changeFrequency: 'monthly' as const,
     priority: 0.8,
