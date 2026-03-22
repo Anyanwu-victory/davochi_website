@@ -1,5 +1,4 @@
 // app/projects/[slug]/page.tsx
-"use client"
 
 import { notFound } from 'next/navigation'
 import { getProjectBySlug, getProjectSlugs } from '@/sanity/lib/data'
@@ -23,9 +22,9 @@ export async function generateStaticParams() {
 export default async function ProjectPage({
   params,
 }: {
-  params: Promise<{ slug: string }>
+  params: { slug: string }
 }) {
-  const { slug } = await params
+  const { slug } =  params
 
   // Bug 3 fixed: was missing await — project was a Promise, not the data
   const project = await getProjectBySlug(slug)
