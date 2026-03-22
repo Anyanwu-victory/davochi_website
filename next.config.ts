@@ -1,6 +1,6 @@
+// next.config.ts
 import type { NextConfig } from 'next'
-import path from "path"
-
+import path from 'path'
 
 const nextConfig: NextConfig = {
   images: {
@@ -15,16 +15,22 @@ const nextConfig: NextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
-    serverExternalPackages: ['sanity', 'next-sanity'],
-     // ── Force all packages to use the same single React instance ─────────────
+  serverExternalPackages: ['sanity', 'next-sanity'],
+
+  // ── Disable experimental React Compiler that causes duplicate React ────────
+  experimental: {
+    reactCompiler: false,
+  },
+
+  // ── Force single React instance using __dirname (works on Vercel) ─────────
   webpack: (config) => {
     config.resolve.alias = {
       ...config.resolve.alias,
-      react: path.resolve('./node_modules/react'),
-      'react-dom': path.resolve('./node_modules/react-dom'),
+      react:     path.resolve(__dirname, 'node_modules/react'),
+      'react-dom': path.resolve(__dirname, 'node_modules/react-dom'),
     }
     return config
   },
 }
 
-export default nextConfig;
+export default nextConfig
