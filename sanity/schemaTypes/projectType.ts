@@ -1,5 +1,4 @@
 // sanity/schemas/project.ts
-import React from 'react'
 import { defineType, defineField, defineArrayMember } from 'sanity'
 
 export const projectType =  defineType({

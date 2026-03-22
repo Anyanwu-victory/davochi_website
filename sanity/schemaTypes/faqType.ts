@@ -1,4 +1,4 @@
-import React from 'react'
+
 import { defineType, defineField } from 'sanity'
 
 export const faqType = defineType({

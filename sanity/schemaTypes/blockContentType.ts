@@ -1,4 +1,4 @@
-import React from 'react'
+
 import {defineType, defineArrayMember} from 'sanity'
 import {ImageIcon} from '@sanity/icons'
 

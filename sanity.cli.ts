@@ -15,6 +15,4 @@ export default defineCliConfig({
           projectId: projectId,     // ← hardcode directly, not from env
           dataset:   dataset,
     },
-
-     studioHost: 'davochi'
 });

@@ -1,5 +1,4 @@
 // sanity/schemas/testimonial.ts
-import React from 'react'
 import { defineType, defineField } from 'sanity'
 
 export const testimonialType = defineType({
