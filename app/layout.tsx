@@ -73,7 +73,8 @@ export default function RootLayout({
         className={` ${abel.variable} ${cousine.variable} ${anton.variable} ${nunito.variable} ${manrope.variable} ${inter.variable} antialiased`}
       >
       
-        {children}
+        {/* {children} */}
+        <div>Test</div>
       
       </body>
     </html>
