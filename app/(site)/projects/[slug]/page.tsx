@@ -1,4 +1,5 @@
 // app/projects/[slug]/page.tsx
+"use client"
 
 import { notFound } from 'next/navigation'
 import { getProjectBySlug, getProjectSlugs } from '@/sanity/lib/data'
