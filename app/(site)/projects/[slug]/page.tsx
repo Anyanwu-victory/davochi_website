@@ -2,6 +2,7 @@
 
 export const dynamic = 'force-dynamic'
 
+
 import { notFound } from 'next/navigation'
 import { getProjectBySlug } from '@/sanity/lib/data'  // ← remove getProjectSlugs import
 
