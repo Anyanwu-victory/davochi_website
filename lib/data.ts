@@ -43,11 +43,3 @@ export const projects = [
     image: '/image/projects/oak-landing.jpg',
   },
 ]
-
-
-
-
-
-
-
-
