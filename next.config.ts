@@ -16,21 +16,15 @@ const nextConfig: NextConfig = {
     ignoreDuringBuilds: true,
   },
   serverExternalPackages: ['sanity', 'next-sanity'],
-
-  // ── Disable experimental React Compiler that causes duplicate React ────────
-  experimental: {
-    reactCompiler: false,
-  },
-
-  // ── Force single React instance using __dirname (works on Vercel) ─────────
   webpack: (config) => {
     config.resolve.alias = {
       ...config.resolve.alias,
-      react:     path.resolve(__dirname, 'node_modules/react'),
+      react:       path.resolve(__dirname, 'node_modules/react'),
       'react-dom': path.resolve(__dirname, 'node_modules/react-dom'),
     }
     return config
   },
+  // ── NO experimental block at all ─────────────────────────────────────────
 }
 
 export default nextConfig

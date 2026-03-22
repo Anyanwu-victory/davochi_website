@@ -1,4 +1,8 @@
 // app/not-found.tsx
+// app/layout.tsx — add this line at the top
+export const dynamic = 'force-dynamic' 
+
+
 export default function NotFound() {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center">
