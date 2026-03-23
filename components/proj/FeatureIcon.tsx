@@ -177,7 +177,7 @@ export default function FeatureIcon({ type }: { type: string }) {
         viewBox="0 0 64 64"
         fill="none"
       >
-        <g clip-path="url(#clip0_343_1371)">
+        <g clipPath="url(#clip0_343_1371)">
           <path
             d="M43.0625 41.9146C43.5803 41.9146 44 41.4949 44 40.9771C44 40.4593 43.5803 40.0396 43.0625 40.0396C42.5447 40.0396 42.125 40.4593 42.125 40.9771C42.125 41.4949 42.5447 41.9146 43.0625 41.9146Z"
             fill="#393939"
@@ -367,7 +367,7 @@ export default function FeatureIcon({ type }: { type: string }) {
         viewBox="0 0 64 64"
         fill="none"
       >
-        <g clip-path="url(#clip0_343_1413)">
+        <g clipPath="url(#clip0_343_1413)">
           <mask
             id="mask0_343_1413"
             style={{ maskType: "luminance" }}
