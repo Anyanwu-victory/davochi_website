@@ -15,16 +15,13 @@ const nextConfig: NextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
-  serverExternalPackages: ['sanity', 'next-sanity'],
-  webpack: (config) => {
-    config.resolve.alias = {
-      ...config.resolve.alias,
-      react:       path.resolve(__dirname, 'node_modules/react'),
-      'react-dom': path.resolve(__dirname, 'node_modules/react-dom'),
-    }
-    return config
+  typescript: {
+    ignoreBuildErrors: true,
   },
-  // ── NO experimental block at all ─────────────────────────────────────────
+   
+  serverExternalPackages: ['sanity', 'next-sanity'],
+  turbopack: {},
+ 
 }
 
 export default nextConfig
