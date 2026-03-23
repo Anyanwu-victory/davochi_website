@@ -1,13 +1,18 @@
 // app/(site)/layout.tsx — server component, no dynamic imports
-export const dynamic = 'force-dynamic';
 
-
-import ClientLayout from '@/components/clientLayout'
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 export default function SiteLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
-  return <ClientLayout>{children}</ClientLayout>
-}
+  return (
+<>
+  <Header/>
+  {children}
+
+  <Footer />
+</>
+)}
