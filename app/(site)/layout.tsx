@@ -10,8 +10,6 @@ export default async function SiteLayout({
 }) {
   const settings = await getSiteSettings();
 
-
-  console.log('Site settings:', JSON.stringify(settings, null, 2)) 
   return (
     <>
       <Header />

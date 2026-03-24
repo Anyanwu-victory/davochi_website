@@ -22,7 +22,6 @@ const Team = ({ members }: TeamProps) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
-  console.log(members);
   return (
     <section ref={ref} id="team" className="py-16 md:py-20 bg-white">
       <div className="mx-auto px-6 sm:px-8 lg:px-30 xl:px-48 py-5">
