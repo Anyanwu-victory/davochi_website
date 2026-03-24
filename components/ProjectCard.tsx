@@ -45,7 +45,7 @@ const ProjectCard = ({
           className="absolute inset-0 bg-[#FFBA32]/90"
         />
 
-        <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/80 via-black/40 to-transparent pointer-events-none" />
+        <div className="absolute inset-x-0 bottom-0 h-1/2 bg-linear-to-t from-black/80 via-black/40 to-transparent pointer-events-none" />
 
 
         {/* Content */}

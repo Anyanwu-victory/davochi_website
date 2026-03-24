@@ -3,7 +3,6 @@
 // Components receive plain shaped objects with string image URLs — no Sanity
 // types leak into your UI layer.
 
-import { client } from './client'
 import { urlFor } from './image'
 import {
   projectBySlugQuery,
@@ -17,10 +16,12 @@ import {
   faqQuery,
   siteSettingsQuery
 } from './queries'
+import { sanityFetch } from "./live";
 
 // ── Cache config — webhook handles all revalidation ──────────────────────────
-const CACHE = { next: { revalidate: false } } as const
- 
+// (optional, can be passed to sanityFetch as next options)
+const CACHE_OPTIONS = { next: { revalidate: false } } as const
+
 // ── Image helper ──────────────────────────────────────────────────────────────
 const toUrl = (img: any, fallback = '/placeholder.svg'): string =>
   img ? urlFor(img).auto('format').url() : fallback
@@ -30,100 +31,140 @@ const toResizedUrl = (img: any, w: number, h: number, fallback = '/placeholder.s
 
 // ── Projects ──────────────────────────────────────────────────────────────────
 export async function getProjectBySlug(slug: string) {
-  const raw = await client.fetch(projectBySlugQuery, { slug }, CACHE)
-  if (!raw) return null
+  const { data } = await sanityFetch({
+    query: projectBySlugQuery,
+    params: { slug },
+    ...CACHE_OPTIONS,   // optional: keep your cache strategy
+  });
+
+  if (!data) return null;
 
   return {
-    ...raw,
-    heroImage:     toResizedUrl(raw.heroImage, 1440, 800),
-    mainImage:     toResizedUrl(raw.mainImage, 800, 600),
-    propertyTypes: (raw.propertyTypes ?? []).map((p: any) => ({
+    ...data,
+    heroImage:     toResizedUrl(data.heroImage, 1440, 800),
+    mainImage:     toResizedUrl(data.mainImage, 800, 600),
+    propertyTypes: (data.propertyTypes ?? []).map((p: any) => ({
       ...p,
       image: toResizedUrl(p.image, 400, 300),
     })),
-    sights: (raw.sights ?? []).map((s: any) => ({
+    sights: (data.sights ?? []).map((s: any) => ({
       ...s,
       image: toResizedUrl(s.image, 800, 600),
     })),
-  }
+  };
 }
 
 export async function getAllProjects() {
-  const raw = await client.fetch(allProjectsQuery, {}, CACHE)
-  return (raw ?? []).map((p: any) => ({
+  const { data } = await sanityFetch({
+    query: allProjectsQuery,
+    params: {},
+    ...CACHE_OPTIONS,
+  });
+  return (data ?? []).map((p: any) => ({
     ...p,
     heroImage: toResizedUrl(p.heroImage, 800, 600),
     mainImage: toResizedUrl(p.mainImage, 800, 600),
-  }))
+  }));
 }
 
 export async function getProjectSlugs() {
-  const res = await client.fetch(allProjectSlugsQuery, {}, CACHE)
-  return (res ?? []).map((r: any) => r.slug)
+  const { data } = await sanityFetch({
+    query: allProjectSlugsQuery,
+    params: {},
+    ...CACHE_OPTIONS,
+  });
+  return (data ?? []).map((r: any) => r.slug);
 }
 
 // ── Team Members ──────────────────────────────────────────────────────────────
 export async function getTeamMembers() {
-  const raw = await client.fetch(teamMembersQuery, {}, CACHE)
-  return (raw ?? []).map((m: any) => ({
+  const { data } = await sanityFetch({
+    query: teamMembersQuery,
+    params: {},
+    ...CACHE_OPTIONS,
+  });
+  return (data ?? []).map((m: any) => ({
     ...m,
     image: toResizedUrl(m.image, 640, 800),
-  }))
+  }));
 }
 
 // ── Contact Members ───────────────────────────────────────────────────────────
-
 export async function getContactMembers() {
-  const raw = await client.fetch(contactMembersQuery, {}, CACHE)
-  return (raw ?? []).map((m: any) => ({
+  const { data } = await sanityFetch({
+    query: contactMembersQuery,
+    params: {},
+    ...CACHE_OPTIONS,
+  });
+  return (data ?? []).map((m: any) => ({
     ...m,
-    image: m.image ? urlFor(m.image).width(64).height(64).fit('crop').auto('format').url() : null,
-  }))
+    image: m.image
+      ? urlFor(m.image).width(64).height(64).fit('crop').auto('format').url()
+      : null,
+  }));
 }
 
 // ── Stats ─────────────────────────────────────────────────────────────────────
 export async function getStats() {
-  return client.fetch(statsQuery, {}, CACHE)
+  const { data } = await sanityFetch({
+    query: statsQuery,
+    params: {},
+    ...CACHE_OPTIONS,
+  });
+  return data ?? {};
 }
 
 // ── Services ──────────────────────────────────────────────────────────────────
 export async function getServices() {
-  const raw = await client.fetch(servicesQuery, {}, CACHE)
-  return (raw ?? []).map((s: any) => ({
+  const { data } = await sanityFetch({
+    query: servicesQuery,
+    params: {},
+    ...CACHE_OPTIONS,
+  });
+  return (data ?? []).map((s: any) => ({
     ...s,
     icon: toUrl(s.icon),
-  }))
+  }));
 }
 
 // ── Testimonials ──────────────────────────────────────────────────────────────
 export async function getTestimonials() {
-  const raw = await client.fetch(testimonialsQuery, {}, CACHE)
-  return (raw ?? []).map((t: any) => ({
+  const { data } = await sanityFetch({
+    query: testimonialsQuery,
+    params: {},
+    ...CACHE_OPTIONS,
+  });
+  return (data ?? []).map((t: any) => ({
     ...t,
     date: t.date
-      ? new Date(t.date).toLocaleDateString('en-GB')  // → "21/07/2025"
+      ? new Date(t.date).toLocaleDateString('en-GB')
       : '',
-  }))
+  }));
 }
-
 
 // ── Faqs ──────────────────────────────────────────────────────────────
 export async function getFaqs() {
-  const raw = await client.fetch(faqQuery, {}, CACHE)
-  return raw ?? []
+  const { data } = await sanityFetch({
+    query: faqQuery,
+    params: {},
+    ...CACHE_OPTIONS,
+  });
+  return data ?? [];
 }
 
-
-
-// ── Update getSiteSettings in data.ts ─────────────────────────────────────────
+// ── Site Settings ─────────────────────────────────────────────────────────────
 export async function getSiteSettings() {
-  const res = await client.fetch(siteSettingsQuery, {}, CACHE)
-  return res ?? {
-    mission:       '',
-    vision:        '',
+  const { data } = await sanityFetch({
+    query: siteSettingsQuery,
+    params: {},
+    ...CACHE_OPTIONS,
+  });
+  return data ?? {
+    mission: '',
+    vision: '',
     whatsappNumber: '',
-    phoneNumbers:  [],
-    email:         '',
-    address:       '',
-  }
+    phoneNumbers: [],
+    email: '',
+    address: '',
+  };
 }

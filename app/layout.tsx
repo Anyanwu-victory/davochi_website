@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { SanityLive } from "@/sanity/lib/live";
 import { Cousine, Anton, Nunito, Manrope, Inter, Abel } from "next/font/google";
 import "./globals.css";
 
@@ -74,7 +75,7 @@ export default function RootLayout({
       >
       
         {children}
-      
+        <SanityLive />
       </body>
     </html>
    );
