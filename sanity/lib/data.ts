@@ -114,8 +114,16 @@ export async function getFaqs() {
 }
 
 
-// ── Site Setting ──────────────────────────────────────────────────────────────
+
+// ── Update getSiteSettings in data.ts ─────────────────────────────────────────
 export async function getSiteSettings() {
   const res = await client.fetch(siteSettingsQuery, {}, CACHE)
-  return res ?? { mission: '', vision: '', whatsappNumber: '' }
+  return res ?? {
+    mission:       '',
+    vision:        '',
+    whatsappNumber: '',
+    phoneNumbers:  [],
+    email:         '',
+    address:       '',
+  }
 }

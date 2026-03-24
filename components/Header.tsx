@@ -58,7 +58,7 @@ const Header = () => {
       
       {/* Content layer */}
       <div className="relative">
-        <div className="container-custom px-8 md:px-16 lg:px-24">
+        <div className="container-custom px-8 md:px-14 lg:px-24">
           <div className="flex items-center justify-between h-20 text-white">
             
             {/* Logo */}

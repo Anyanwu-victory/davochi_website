@@ -13,7 +13,7 @@ export default function PropertyTypes({ propertyTypes }: PropertyTypesProps) {
     <section className="max-w-6xl mx-auto px-4 xl:px-2 pb-12">
       <h2 className="font-bold mb-6 text-[20px] font-inter">Property Types</h2>
 
-      <div className="flex gap-4 overflow-x-auo pb-2">
+      <div className="flex gap-4 overflow-x-auto pb-2">
         {propertyTypes.map((type, i) => (
           <div key={i}>
             <div

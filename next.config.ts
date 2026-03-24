@@ -19,9 +19,12 @@ const nextConfig: NextConfig = {
     ignoreBuildErrors: true,
   },
    
-  serverExternalPackages: ['sanity', 'next-sanity'],
-  turbopack: {},
- 
+  // serverExternalPackages: ['sanity', 'next-sanity', '@sanity/client', '@sanity/vision'],
+  // turbopack: {},
+  // experimental: {
+  //   reactCompiler: true
+  // },
+  transpilePackages: ['sanity', '@sanity/ui'],
 }
 
 export default nextConfig

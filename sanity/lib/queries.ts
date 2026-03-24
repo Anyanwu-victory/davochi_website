@@ -116,6 +116,12 @@ export const siteSettingsQuery = `
   *[_type == "siteSettings"][0] {
     mission,
     vision,
-    whatsappNumber
+    whatsappNumber,
+    phoneNumbers[]{
+          number,
+          dialCode
+        },
+    email,
+    address
   }
 `

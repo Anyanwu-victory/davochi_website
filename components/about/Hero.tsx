@@ -1,8 +1,8 @@
 // components/about/Hero.tsx
 "use client";
 
-import { motion, useInView, useMotionValue, useTransform, animate } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
+import { motion, useInView, useMotionValue, useTransform, animate } from "framer-motion";
 import { iconComponents } from "../icons";
 import MorphButton from "../ui/morphButton";
 

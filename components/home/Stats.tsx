@@ -1,4 +1,6 @@
 "use client";
+
+import { useRef, useEffect, useState } from "react";
 import {
   motion,
   useInView,
@@ -6,7 +8,6 @@ import {
   useTransform,
   animate,
 } from "framer-motion";
-import { useRef, useEffect, useState } from "react";
 import Image from "next/image";
 import Button from "../Button";
 import { iconComponents } from "../icons";

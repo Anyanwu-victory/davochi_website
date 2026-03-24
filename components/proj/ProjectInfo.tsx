@@ -138,7 +138,7 @@ export default function ProjectInfo({
           {/* Stats Grid */}
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 mt-10 ">
             {stats.map((stat, i) => (
-              <div key={i} className="flex flex-col justify-start w-50 items-start ">
+              <div key={i} className="flex flex-col justify-start md:w-50 items-start ">
                 <div className="flex justify-start gap-2 items-center">
                   <div className="w-12 h-12 md:w-14 md:h-14 flex items-center justify-center ">
                     <FeatureIcon type={stat.icon} />
