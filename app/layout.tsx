@@ -52,7 +52,7 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_NG',
     url: 'https://davochi.ng/',
-    siteName: 'Davochi Multihomes',
+    siteName: 'Davochi Multihomes and Interiors',
     images: [{ url: '/og-image.jpg', width: 1200, height: 630 }],
   },
   twitter: {
