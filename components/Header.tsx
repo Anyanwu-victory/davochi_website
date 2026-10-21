@@ -38,6 +38,11 @@ const Header = () => {
     { name: 'Contact', href: '/contact' },
   ]
 
+  const isActiveLink = (href: string) =>
+    href === '/'
+      ? pathname === '/'
+      : pathname === href || pathname.startsWith(`${href}/`)
+
   const borderWidth = 80 + (scrollProgress * 40)
   const bgOpacity = scrollProgress * 0.95
   const borderOpacity = 1 - scrollProgress
@@ -83,16 +88,23 @@ const Header = () => {
             {/* Desktop Navigation */}
             <nav className="hidden md:flex items-center space-x-12 relative z-10">
               {navLinks.map((link, index) => (
-                <motion.a
+                <motion.div
                   key={link.name}
-                  href={link.href}
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="text-sm font-medium text-white/60 transition-colors hover:text-gold-500"
                 >
-                  {link.name}
-                </motion.a>
+                  <Link
+                    href={link.href}
+                    aria-current={isActiveLink(link.href) ? 'page' : undefined}
+                    className={cn(
+                      'text-sm font-medium transition-colors hover:text-gold-500',
+                      isActiveLink(link.href) ? 'text-white' : 'text-white/60'
+                    )}
+                  >
+                    {link.name}
+                  </Link>
+                </motion.div>
               ))}
             </nav>
 
@@ -152,7 +164,11 @@ const Header = () => {
                   key={link.name}
                   href={link.href}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="block text-white hover:text-gold-500 transition-colors"
+                  aria-current={isActiveLink(link.href) ? 'page' : undefined}
+                  className={cn(
+                    'block hover:text-gold-500 transition-colors',
+                    isActiveLink(link.href) ? 'text-white' : 'text-white/60'
+                  )}
                 >
                   {link.name}
                 </Link>
