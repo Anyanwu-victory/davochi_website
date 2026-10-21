@@ -206,6 +206,7 @@ const Hero = ({whatsappNumber}: HeroProps) => {
                   width={500}
                   height={300}
                   className="w-full object-cover"
+                  loading="lazy"
                 />
               </div>
             </div>

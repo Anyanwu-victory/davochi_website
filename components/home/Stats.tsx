@@ -85,8 +85,8 @@ const AboutWithStats = ({ stats }: StatProps)  => {
             src="/bg-image.jpg"
             alt="Building"
             fill
-            priority
             className="object-cover clip-image "
+            loading="lazy"
           />
         </div>
 
@@ -96,8 +96,8 @@ const AboutWithStats = ({ stats }: StatProps)  => {
             src="/backgroundImage.png"
             alt="Building"
             fill
-            priority
             className="object-cover mobile-clip-image"
+            loading="lazy"
           />
         </div>
 

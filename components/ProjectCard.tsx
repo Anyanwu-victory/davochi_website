@@ -4,6 +4,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
 interface ProjectCardProps {
   title:       string;
@@ -32,9 +33,13 @@ const ProjectCard = ({
         transition={{ duration: 0.3 }}
       >
         {/* Background Image */}
-        <div
-          className="absolute inset-0 bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
-          style={{ backgroundImage: `url(${image})` }}
+        <Image
+          src={image}
+          alt={title}
+          fill
+          sizes="(max-width: 768px) 100vw, 50vw"
+          loading="lazy"
+          className="object-cover object-center transition-transform duration-500 group-hover:scale-110"
         />
 
         {/* Yellow Overlay */}

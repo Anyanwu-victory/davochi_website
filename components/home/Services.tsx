@@ -78,6 +78,7 @@ const Services = ({ services }: ServiceProps) => {
                           alt={service.title}
                           width={48}
                           height={48}
+                          loading="lazy"
                         />
                       </div>
 
@@ -127,7 +128,7 @@ const Services = ({ services }: ServiceProps) => {
                 alt="Couple viewing property"
                 fill
                 className="object-cover"
-                priority
+                loading="lazy"
               />
             </div>
           </motion.div>

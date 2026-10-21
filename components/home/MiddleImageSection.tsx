@@ -25,7 +25,7 @@ const MiddleImageSection = () => {
             alt="Projects Image"
             fill
             className="object-cover md:object-center project-clip-image"
-            priority
+            loading="lazy"
           />
         </div>
 

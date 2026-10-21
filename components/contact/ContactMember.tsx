@@ -59,6 +59,7 @@ const ContactMember =  ({ members }: MemberProps)  => {
                       width={64}
                       height={64}
                       className="object-cover w-full h-full"
+                      loading="lazy"
                     />
                   ) : (
                     <div className="w-full h-full flex items-center justify-center text-white font-bold text-xl">

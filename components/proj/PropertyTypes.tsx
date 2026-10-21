@@ -27,6 +27,7 @@ export default function PropertyTypes({ propertyTypes }: PropertyTypesProps) {
                   alt={type.title}
                   fill
                   className="object-cover"
+                  loading="lazy"
                 />
               </div>
             </div>

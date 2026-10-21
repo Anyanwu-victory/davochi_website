@@ -66,6 +66,7 @@ export default function ProjectSights({ sights, projectTitle }: ProjectSightsPro
                 alt={`${projectTitle} sight ${i + 1}`}
                 fill
                 className="object-cover group-hover:scale-105 transition-transform duration-500"
+                loading="lazy"
               />
               <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors" />
             </div>

@@ -75,7 +75,7 @@ const Header = () => {
                 width={100} 
                 height={100} 
                 className="inline-block ml-2" 
-                loading='lazy'
+                priority
               />
               </Link>
             </motion.div>
